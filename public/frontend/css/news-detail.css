@@ -1,0 +1,32 @@
+.label-subpage {margin-bottom: 24px;}
+.label-subpage span, .tags span {background-color: var(--sub-color);border-radius: 4px;color: #fff;display: inline-block;padding: 3px 12px 4px;text-transform: uppercase;font-size: 13px;}
+
+.title-subpage {display:flex;/* align-items:center */}
+.title-subpage .time-box {flex:0 0 100px;margin-right: 20px;}
+.title-subpage h2 {flex:1;font-size: 27px;line-height: 1.2;-webkit-text-stroke-width: 0.4px;margin-bottom: 0;margin-top: -8px;}
+
+.main-content {margin-bottom:32px}
+.main-content .description {font-style:italic;margin-bottom:24px;color: rgba(0,0,0,.64);}
+.main-content h5 {-webkit-text-stroke-width: 0.4px;; margin-bottom:24px}
+.main-content .line-b::after {width:64px;}
+
+.share-social {color: rgba(0,0,0,.5);padding: 0 16px;top: 64px;}
+.share-social span {position:relative;text-transform: uppercase;font-size: 14px;display: flex;align-items: center;justify-content: center;}
+.share-social span::before {flex: 0 0 10px;height: 10px;border-radius:50%;background-color:var(--main-color);content:'';display: block;margin-right: 5px;margin-top: 1px;}
+.share-social ul {/* display:flex; *//* flex-direction: column; *//* justify-content: center; */}
+.share-social ul li {display:block;margin: auto;}
+.share-social ul li a {font-size: 36px;text-align: center;border: 1px solid rgba(0,0,0,.25);border-radius: 50%;width: 44px;height: 44px;display: flex;margin: 7px auto;color: rgba(0,0,0,.5);flex: 0 0 auto;justify-content: center;align-items: center;}
+.share-social ul li a:hover {background-color:var(--main-color); border-color:var(--main-color); color:#fff}
+
+.main-article {padding-left: 20px;padding-right: 20px;line-height: 1.5;}
+
+.related-sec {background-color: #f5f5f5; padding-top: 56px; padding-bottom: 40px;}
+
+.tags {display:flex;}
+.tags span {margin-right:12px}
+.tags a {display:inline-block; padding:2px 8px; font-style:italic}
+
+@media (min-width: 768px) {
+  .main-content .col-md-2 {flex: 0 0 auto; width: 100px;}
+  .main-content .col-md-10 {flex: 1; width: auto;}
+}

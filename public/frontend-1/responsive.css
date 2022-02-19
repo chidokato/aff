@@ -1,0 +1,55 @@
+@media (min-width: 1200px){
+  .display-5 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 1024px){ /*máy tính bảng loại to, hiển thị chiều ngang*/
+
+
+}
+
+@media (max-width: 768px){ /*máy tính bảng loại to, hiển thị chiều dọc*/
+
+
+}
+
+
+@media (max-width: 800px){ /*máy tính bảng, hiển thị chiều ngang*/
+
+
+}
+
+
+@media (max-width: 600px){ /*máy tính bảng, hiển thị chiều dọc*/
+
+
+}
+
+
+@media (max-width: 480px){ /*điện thoại di động, hiển thị chiều ngang*/
+	.text-secondary .py-5{
+		padding: 10px !important;
+	}
+  .navbar-collapse {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #0d3e85;
+    padding: 10px;width: 270px;
+  }
+
+}
+
+
+@media (max-width: 320px){ /*điện thoại di động, hiển thị chiều dọc*/
+
+
+}
