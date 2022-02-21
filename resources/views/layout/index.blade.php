@@ -36,13 +36,8 @@
 <meta property="article:author" content="admin" />
 
 <!-- ================= Style ================== --> 
-<link href="frontend/css/bootstrap.min.css" rel="stylesheet">
-<link href="frontend/css/fonts.css" rel="stylesheet">
-<link href="frontend/css/common.css" rel="stylesheet">
-<link href="frontend/css/header.css" rel="stylesheet">
-<link href="frontend/css/footer.css" rel="stylesheet">
-<link href="frontend/css/sort.css" rel="stylesheet">
-<link href="frontend/css/card.css" rel="stylesheet">
+<link href="frontend/css/plugins.css" rel="stylesheet">
+<link href="frontend/css/style.css" rel="stylesheet">
 
 
 <!-- ================= js ================== --> 
@@ -57,11 +52,15 @@
 
 <body> 
 
-@include('layout.header')
-<main>
+<div class="body-inner">
+
+
+
 @yield('content')
-</main>
+
 @include('layout.footer')
+
+</div>
 
 {!! $head_setting->codebody !!}
 
@@ -69,8 +68,10 @@
 	<script> alert('Thành công'); </script>
 @endif
 
-<script src="frontend/js/bootstrap.bundle.min.js"></script>
-<script src="frontend/js/custom.js"></script>
+<a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
+<script src="frontend/js/jquery.js"></script>
+<script src="frontend/js/plugins.js"></script>
+<script src="frontend/js/functions.js"></script>
 
 @yield('script')
 
