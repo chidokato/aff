@@ -131,10 +131,9 @@ class c_frontend extends Controller
             ->whereNotin('id',[$id])
             ->take(8)
             ->get();
-        return view('pages.articles',[
-            'articles'=>$articles,
-            'lienquan'=>$lienquan
-        ]);
+        if ($articles['sort_by'] == 2) {
+            return view('pages.articles',['articles'=>$articles,'lienquan'=>$lienquan]);
+        }
     }
 
     public function post_search(Request $Request)
@@ -160,15 +159,6 @@ class c_frontend extends Controller
         $key = $Request->key;
         $news = news::where('status','true')->where('name','like',"%$key%")->orderBy('id','desc')->paginate(24);
         return view('pages.search',['news'=>$news, 'key'=>$key]);
-    }
-
-    
-
-    public function singlenews($curl,$nurl,$id)
-    {
-        $singlenews = news::where('id',$id)->first();
-        $tinlienquan = news::where('status','true')->where('cat_id',$singlenews['cat_id'])->whereNotin('id',[$id])->take(10)->get();
-        return view('pages.singlenews',['singlenews'=>$singlenews, 'tinlienquan'=>$tinlienquan]);
     }
 
 	public function dangky(Request $Request)
