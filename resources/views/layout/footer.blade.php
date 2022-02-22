@@ -4,57 +4,49 @@
 <div class="row">
 <div class="col-lg-5">
 <div class="widget">
-<div class="widget-title">Polo HTML5 Template</div>
-<p class="mb-5">Built with love in Fort Worth, Texas, USA<br> All rights reserved. Copyright © 2019. INSPIRO.</p>
-<a href="https://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923" class="btn btn-inverted" target="_blank">Purchase Now</a>
+<div class="widget-title">Sổ Tay Tiêu Dùng</div>
+<p class="mb-5">Hãy là người tiêu dùng thông thái khi tình trạng thực phẩm bẩn, thực phẩm mất an toàn đang là nỗi lo của nhiều gia đình, ...
+.</p>
+<a href="" class="btn btn-inverted" target="_blank">Nhận thông tin</a>
 </div>
 </div>
 <div class="col-lg-7">
 <div class="row">
+
 <div class="col-lg-3">
 <div class="widget">
-<div class="widget-title">Discover</div>
+<div class="widget-title">Liên kết</div>
 <ul class="list">
-<li><a href="#">Features</a></li>
-<li><a href="#">Layouts</a></li>
-<li><a href="#">Corporate</a></li>
-<li><a href="#">Updates</a></li>
-<li><a href="#">Pricing</a></li>
-<li><a href="#">Customers</a></li>
+<li><a href="#">Shopee</a></li>
+<li><a href="#">Lazada</a></li>
+<li><a href="#">Tiki</a></li>
+<li><a href="#">Sendo</a></li>
 </ul>
 </div>
 </div>
+
 <div class="col-lg-3">
 <div class="widget">
-<div class="widget-title">Features</div>
+<div class="widget-title">Thông tin</div>
 <ul class="list">
-<li><a href="#">Layouts</a></li>
-<li><a href="#">Headers</a></li>
-<li><a href="#">Widgets</a></li>
-<li><a href="#">Footers</a></li>
+<li><a href="#">Giới thiệu</a></li>
+<li><a href="#">Điều khoản</a></li>
+<li><a href="#">Liên hệ</a></li>
+<li><a href="#">Hỗ trợ</a></li>
 </ul>
 </div>
 </div>
+
 <div class="col-lg-3">
 <div class="widget">
-<div class="widget-title">Pages</div>
+<div class="widget-title">Sản phẩm</div>
 <ul class="list">
-<li><a href="#">Portfolio</a></li>
-<li><a href="#">Blog</a></li>
-<li><a href="#">Shop</a></li>
+<li><a href="#">Giày dép trẻ em</a></li>
+<li><a href="#">Cây cảnh để bàn</a></li>
 </ul>
 </div>
 </div>
-<div class="col-lg-3">
-<div class="widget">
-<div class="widget-title">Support</div>
-<ul class="list">
-<li><a href="#">Help Desk</a></li>
-<li><a href="#">Documentation</a></li>
-<li><a href="#">Contact Us</a></li>
-</ul>
-</div>
-</div>
+
 </div>
 </div>
 </div>

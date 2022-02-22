@@ -20,6 +20,8 @@
 .post-item-description .content h3{font-size: 1.2rem; height: auto;}
 .post-item-description .content p{text-align: justify;font-size: 1rem;}
 .post-item-description .content ul{margin-left: 20px;}
+.post-item-description .content img{max-width: 100% !important; height: auto !important; }
+
 .single-post .post-item .post-item-description {
     padding: 0;}
 #header {
@@ -44,6 +46,9 @@
 }
 .post-item.border>.post-item-wrap>.post-item-description {
     padding: 14px!important;
+}
+.inspiro-slider.slider-fullscreen {
+    height: 80vh;
 }
 
 

@@ -12,73 +12,52 @@
 
 <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-fade="true">
 
-<div class="slide kenburns" data-bg-image="images/slider/notgeneric_bg3.jpg">
-<div class="bg-overlay"></div>
-<div class="container">
-<div class="slide-captions text-center text-light">
-
-<h1>WELCOME TO THE WORLD OF POLO</h1>
-<p>Say hello to the smartest and most flexible bootstrap template. Polo is an powerful template that can build any type of websites, and quite possibly the only one you will ever need.</p>
-<div><a href="#welcome" class="btn scroll-to">Explore more</a></div>
-</span>
-
-</div>
-</div>
-</div>
-
-
-<div class="slide" data-bg-video="video/pexels-waves.mp4">
-<div class="bg-overlay"></div>
-<div class="container">
-<div class="slide-captions text-left text-light">
-
-<h1>220+ Laytout Demos</h1>
-<p class="text-small">POLO is packed with 220+ pre-made layouts that allow you to quickly jumpstart your project. Completely customizable for creating your own designs.</p>
-<div><a href="#welcome" class="btn scroll-to">Explore more</a></div>
-
-</div>
-</div>
-</div>
+	<div class="slide kenburns" data-bg-image="images/slider/notgeneric_bg3.jpg">
+		<div class="bg-overlay"></div>
+		<div class="container">
+			<div class="slide-captions text-center text-light">
+				<h1>SỔ TAY TIÊU DÙNG</h1>
+				<p>Hãy là “người tiêu dùng thông thái” ... Đó là thông điệp xuyên suốt mà các chuyên gia, các nhà quản lý cùng nhà báo muốn chuyển tải tới độc giả của Nhân Dân ...</p>
+				<div><a href="#" class="btn scroll-to">Tìm hiểu ngay</a></div>
+			</div>
+		</div>
+	</div>
 
 </div>
 
 <section class="p-b-0">
-<div class="container">
-<div class="heading-text heading-section">
-<h2>Recent Work</h2>
-<span class="lead">Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo
-consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</span>
-</div>
-</div>
+	<div class="container">
+		<div class="heading-text heading-section">
+			<h2>Hạng mục</h2>
+			<span class="lead">Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo
+			consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+			consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</span>
+		</div>
+	</div>
 <div class="portfolio">
-
 <div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0">
+	<div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
+	<div class="portfolio-item-wrap">
+	<div class="portfolio-slider">
+	<div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
+	<a href="#"><img src="images/portfolio/64.jpg" alt=""></a>
+	<a href="#"><img src="images/portfolio/70.jpg" alt=""></a>
+	</div>
+	</div>
+	</div>
+	</div>
 
-<div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
-<div class="portfolio-item-wrap">
-<div class="portfolio-slider">
-<div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-<a href="#"><img src="images/portfolio/64.jpg" alt=""></a>
-<a href="#"><img src="images/portfolio/70.jpg" alt=""></a>
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
-<div class="portfolio-item-wrap">
-<div class="portfolio-image">
-<a href="#"><img src="images/portfolio/60.jpg" alt=""></a>
-</div>
-<div class="portfolio-description">
-<a title="Paper Pouch!" data-lightbox="image" href="images/portfolio/83l.jpg"><i class="icon-maximize"></i></a>
-<a href="portfolio-page-grid-gallery.html"><i class="icon-link"></i></a>
-</div>
-</div>
-</div>
-
+	<div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
+	<div class="portfolio-item-wrap">
+	<div class="portfolio-image">
+	<a href="#"><img src="images/portfolio/60.jpg" alt=""></a>
+	</div>
+	<div class="portfolio-description">
+	<a title="Paper Pouch!" data-lightbox="image" href="images/portfolio/83l.jpg"><i class="icon-maximize"></i></a>
+	<a href="portfolio-page-grid-gallery.html"><i class="icon-link"></i></a>
+	</div>
+	</div>
+	</div>
 
 <div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
 <div class="portfolio-item-wrap">
