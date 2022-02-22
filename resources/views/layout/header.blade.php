@@ -1,11 +1,11 @@
-<header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">
+<header id="header" class="header-always-fixed">
 <div class="header-inner">
 <div class="container">
 
 <div id="logo">
 <a href="{{asset('')}}">
-<span class="logo-default">POLO</span>
-<span class="logo-dark">POLO</span>
+<span class="logo-default">STTD</span>
+<span class="logo-dark">STTD</span>
 </a>
 </div>
 
@@ -18,31 +18,84 @@
 </div> -->
 
 
-<!-- <div class="header-extras">
-<ul>
-<li>
-<a id="btn-search" href="#"> <i class="icon-search"></i></a>
-</li>
-<li>
+<div class="header-extras">
+	<!-- <ul>
+		<li>
+		<a id="btn-search" href="#"> <i class="icon-search"></i></a>
+		</li>
+		<li>
+		<div class="p-dropdown">
+		<a href="#"><i class="icon-globe"></i><span>EN</span></a>
+		<ul class="p-dropdown-content">
+		<li><a href="#">French</a></li>
+		<li><a href="#">Spanish</a></li>
+		<li><a href="#">English</a></li>
+		</ul>
+		</div>
+		</li>
+	</ul> -->
 <div class="p-dropdown">
-<a href="#"><i class="icon-globe"></i><span>EN</span></a>
-<ul class="p-dropdown-content">
-<li><a href="#">French</a></li>
-<li><a href="#">Spanish</a></li>
-<li><a href="#">English</a></li>
+<a class="btn btn-light btn-shadow btn-round"><i class="icon-user"></i></a>
+<div class="p-dropdown-content">
+<div class="widget-myaccount">
+<div class="d-block">
+<img class="avatar avatar-lg" src="images/team/6.jpg">
+ </div>
+<span>Juna Doe</span>
+<p class="text-muted">Professional developer</p>
+<ul class="text-center">
+<li><a href="#"><i class="icon-user"></i>My profile</a></li>
+<li><a href="#"><i class="icon-clock"></i>Activity logs</a></li>
+<li><a href="#"><i class="icon-mail"></i>Messages</a></li>
+<li><a href="#"><i class="icon-settings"></i>Settings</a></li>
+<li><a href="#"><i class="icon-log-out"></i>Sing Out</a>
+</li>
 </ul>
 </div>
-</li>
-</ul>
-</div> -->
+</div>
+</div>
 
+<div class="p-dropdown" style="margin-left: 10px;">
+<a class="btn btn-light btn-shadow btn-round"><i class="icon-shopping-cart"></i></a>
+<div class="p-dropdown-content">
+<div class="widget-mycart">
+<h4>My Cart</h4>
+<div class="cart-item">
+<div class="cart-image"> <a href="#"><img src="images/shop/products/10.jpg"></a></div>
+<div class="cart-product-meta">
+<a href="#">Bolt Sweatshirt</a>
+<span>3 x 28$</span>
+</div>
+<div class="cart-item-remove">
+<a href="#"><i class="icon-x"></i></a></div>
+</div>
+<hr>
+<div class="cart-total">
+<div class="cart-total-labels">
+<span>Subtotal</span>
+<span>Taxes</span>
+<span><strong>Total</strong></span>
+</div>
+<div class="cart-total-prices">
+<span>320$</span>
+<span>8%</span>
+<span><strong>385$</strong></span>
+</div>
+</div>
+<div class="cart-buttons text-right">
+<button class="btn btn-xs">Checkout</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
 
 <div id="mainMenu-trigger">
 <a class="lines-button x"><span class="lines"></span></a>
 </div>
 
-
-<div id="mainMenu">
+<div id="mainMenu" class="menu-center">
 <div class="container">
 <nav>
 <ul>
@@ -51,6 +104,8 @@
 @foreach($menu as $val)
 <li><a href="{{$val->slug}}">{{$val->name}}</a></li>
 @endforeach
+
+<li class="tab"></li>
 
 <!-- <li class="dropdown"><a href="#">Pages</a>
 
@@ -68,6 +123,10 @@
 </ul>
 
 </li> -->
+
+
+
+
 
 
 </ul>
