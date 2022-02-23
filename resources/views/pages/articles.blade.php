@@ -52,7 +52,8 @@
 								</div>
 							</div>
 							<div class="post-tags">
-								<a href="#">Life</a>
+								<a href="{{asset('')}}">sổ tay tiêu dùng</a>
+								<a href="{{$articles->category->slug}}">{{$articles->category->name}}</a>
 							</div>
 						@include('layout.comment')
 						</div>
@@ -68,12 +69,12 @@
 						<div id="toc"  ></div>
 						</div>
 					</div>
-					<div class="widget  widget-tags">
+					<!-- <div class="widget  widget-tags">
 						<h4 class="widget-title">Tags</h4>
 						<div class="tags">
 							<a href="#">Design</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<!-- sidebar -->

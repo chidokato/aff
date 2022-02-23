@@ -179,13 +179,23 @@ class usercontroller extends Controller
     		'name' => 'required',
     		'password' => 'required|min:3|max:32'
     		],[]);
+
+        
     	if(Auth::attempt(['name'=>$request->name,'password'=>$request->password]))
     	{
-    		return redirect('admin/dashboard');
+            if (Auth::User()->permission < 5) {
+                return redirect('admin/dashboard');
+            }else{
+                return redirect('/');
+            }
     	}
     	else
     	{
-    		return redirect('admin_login')->with('Alerts','Lỗi ! Nhập sai tên đăng nhập hoặc mật khẩu !');
+            if (Auth::User()->permission < 5) {
+                return redirect('admin_login')->with('Alerts','Lỗi ! Nhập sai tên đăng nhập hoặc mật khẩu !');
+            }else{
+                return redirect('/');
+            }
     	}
     }
 
@@ -194,5 +204,9 @@ class usercontroller extends Controller
         Auth::logout();
         return redirect('admin_login');
     }
-    
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }

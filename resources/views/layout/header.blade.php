@@ -34,28 +34,54 @@
 		</div>
 		</li>
 	</ul> -->
+@if(Auth::check())
 <div class="p-dropdown">
-<a class="btn btn-light btn-shadow btn-round"><i class="icon-user"></i></a>
+	<a class="btn btn-light btn-shadow btn-round"><i class="icon-user"></i></a>
+	<div class="p-dropdown-content">
+		<div class="widget-myaccount">
+			<div class="d-block">
+				<img class="avatar avatar-lg" src="data/user/{{Auth::User()->avatar}}">
+			</div>
+			<span>{{Auth::User()->email}}</span>
+			<p class="text-muted"><b>{{Auth::User()->your_name}}</b></p>
+			<ul class="text-center">
+				<li><a href="profile"><i class="icon-user"></i>My profile</a></li>
+				<li><a href="messages"><i class="icon-mail"></i>Messages</a></li>
+				<li><a href="settings"><i class="icon-settings"></i>Settings</a></li>
+				<li><a href="logout"><i class="icon-log-out"></i>Sing Out</a>
+			</li>
+			</ul>
+		</div>
+	</div>
+</div>
+@else
+<div class="p-dropdown p-dropdown-invert">
+<a class="btn btn-light btn-shadow btn-round"><i class="icon-log-in"></i></a>
 <div class="p-dropdown-content">
-<div class="widget-myaccount">
-<div class="d-block">
-<img class="avatar avatar-lg" src="images/team/6.jpg">
- </div>
-<span>Juna Doe</span>
-<p class="text-muted">Professional developer</p>
-<ul class="text-center">
-<li><a href="#"><i class="icon-user"></i>My profile</a></li>
-<li><a href="#"><i class="icon-clock"></i>Activity logs</a></li>
-<li><a href="#"><i class="icon-mail"></i>Messages</a></li>
-<li><a href="#"><i class="icon-settings"></i>Settings</a></li>
-<li><a href="#"><i class="icon-log-out"></i>Sing Out</a>
-</li>
-</ul>
+<div class="widget-form">
+<h4>Login</h4>
+<form action="admin/login" method="post" name="login"><input type="hidden" name="_token" value="{{csrf_token()}}" />
+<div class="form-group mb-3">
+<input type="text" name="name" class="form-control" id="name" placeholder="Tên đăng nhập">
+</div>
+<div class="form-group mb-3">
+<input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu">
+</div>
+<div class="form-group text-center">
+</div>
+	<div class="col-md-12 text-center">
+		<button type="submit" class="btn btn-block">Đăng nhập</button>
+	</div>
+	<div class="form-group mb-0">
+		<p class="text-center"><a href="signup" id="signup">Đăng ký</a></p>
+	</div>
+</form>
 </div>
 </div>
 </div>
+@endif
 
-<div class="p-dropdown" style="margin-left: 10px;">
+<div class="p-dropdown iteam-card">
 <a class="btn btn-light btn-shadow btn-round"><i class="icon-shopping-cart"></i></a>
 <div class="p-dropdown-content">
 <div class="widget-mycart">
