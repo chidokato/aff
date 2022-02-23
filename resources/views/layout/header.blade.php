@@ -55,29 +55,18 @@
 	</div>
 </div>
 @else
-<div class="p-dropdown p-dropdown-invert">
-<a class="btn btn-light btn-shadow btn-round"><i class="icon-log-in"></i></a>
-<div class="p-dropdown-content">
-<div class="widget-form">
-<h4>Login</h4>
-<form action="admin/login" method="post" name="login"><input type="hidden" name="_token" value="{{csrf_token()}}" />
-<div class="form-group mb-3">
-<input type="text" name="name" class="form-control" id="name" placeholder="Tên đăng nhập">
-</div>
-<div class="form-group mb-3">
-<input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu">
-</div>
-<div class="form-group text-center">
-</div>
-	<div class="col-md-12 text-center">
-		<button type="submit" class="btn btn-block">Đăng nhập</button>
+<div class="p-dropdown">
+	<a class="btn btn-light btn-shadow btn-round"><i class="icon-log-in"></i></a>
+	<div class="p-dropdown-content">
+		<div class="widget-form">
+			<div class="col-md-12 text-center">
+				<a href="signin" class="btn btn-block">Đăng nhập</a>
+			</div>
+			<div class="form-group mb-0">
+				<p class="text-center"><a href="signup" id="signup">Đăng ký</a></p>
+			</div>
+		</div>
 	</div>
-	<div class="form-group mb-0">
-		<p class="text-center"><a href="signup" id="signup">Đăng ký</a></p>
-	</div>
-</form>
-</div>
-</div>
 </div>
 @endif
 

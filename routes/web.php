@@ -193,6 +193,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 });
 
 Route::get('/','c_frontend@home');
+Route::get('signin','c_frontend@get_signin');
+Route::get('signup','c_frontend@get_signup');
 Route::get('logout','usercontroller@logout');
 
 Route::get('sitemap.xml','c_frontend@sitemap');

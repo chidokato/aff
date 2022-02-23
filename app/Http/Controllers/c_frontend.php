@@ -181,6 +181,16 @@ class c_frontend extends Controller
 		return redirect('/')->with('Alerts','Thành công');
     }
 
+    public function get_signin()
+    {
+        return view('pages.signin',[]);
+    }
+
+    public function get_signup()
+    {
+        return view('pages.signup',[]);
+    }
+
 }
 
 

@@ -191,11 +191,7 @@ class usercontroller extends Controller
     	}
     	else
     	{
-            if (Auth::User()->permission < 5) {
-                return redirect('admin_login')->with('Alerts','Lỗi ! Nhập sai tên đăng nhập hoặc mật khẩu !');
-            }else{
-                return redirect('/');
-            }
+            return redirect()->back();
     	}
     }
 

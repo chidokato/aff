@@ -28,7 +28,7 @@
 <section class="p-b-0">
 	<div class="container">
 		<div class="heading-text heading-section">
-			<h2>Hạng mục</h2>
+			<h2>Review </h2>
 			<span class="lead">Lorem ipsum dolor sit amet, coper suscipit lobortis nisl ut aliquip ex ea commodo
 			consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
 			consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto.</span>
