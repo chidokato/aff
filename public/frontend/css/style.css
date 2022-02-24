@@ -61,14 +61,56 @@ button:focus {
     outline: none;
 }
 
-.product .product-image img {
-    width: 100%;
-    height: 200px;
+.product-list img {
+    height: 200px !important;
     object-fit: cover;
 }
 .header-extras .p-dropdown .p-dropdown-content{
     padding-top: 25px;
 }
+.form-sign{
+	height: 95vh;
+	padding-top: 40px
+}
+.form-sign .form{
+    width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+}
+
+.text-left{
+	text-align: left;
+}
+.text-right{
+	text-align: right;
+}
+.profile .form{
+	width: 800px;
+}
+.accordion .ac-item{ background: #f1f1f1 }
+.accordion .acctive{
+	background: #fff;
+}
+.accordion .acctive .ac-title{
+	font-weight: bold;
+}
+.accordion .ac-item .ac-title{
+	padding: 10px;
+}
+.accordion .ac-item {
+    padding: 0px 10px;
+}
+.accordion .ac-item .ac-content {
+    padding: 10px;
+}
+.accordion .title{
+	display: flex;
+    align-items: center;
+}	
+
+
 
 @media (max-width: 1024px){
 	.content, .sidebar {

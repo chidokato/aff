@@ -9,6 +9,7 @@ use App\User;
 use App\category;
 use App\articles;
 use File;
+use Mail;
 
 class usercontroller extends Controller
 {
@@ -194,7 +195,6 @@ class usercontroller extends Controller
             return redirect()->back();
     	}
     }
-
     public function getlogout()
     {
         Auth::logout();
@@ -205,4 +205,40 @@ class usercontroller extends Controller
         Auth::logout();
         return redirect('/');
     }
+    public function registration(Request $Request){
+        $this->validate($Request,
+            [
+                'name' => 'Required|min:3|max:50',
+                'password' => 'Required',
+                'passwordagain' => 'Required|same:password',
+            ],
+            [
+
+            ] );
+        $user = new User;
+        $user->name = $Request->name;
+        $user->password = bcrypt($Request->password);
+        $user->permission = 6;
+        $user->your_name = $Request->your_name;
+        $user->email = $Request->email;
+        $user->phone = $Request->phone;
+        $user->address = $Request->address;
+        $user->save();
+        return redirect('signin');
+    }
+
+    public function resetacconut(Request $Request){
+        $mail = $Request->email;
+        $user = user::where('email',$mail)->first();
+        $user->password = bcrypt('123456');
+        $user->save();
+
+        Mail::send('resetacconut', array('name'=>$user['name']), function($message) use ($mail){
+            $message->from($mail, 'STTD');
+            $message->to($mail, 'STTD')->subject('Khôi phục tài khoản');
+        });
+
+        return redirect('signin');
+    }
+    
 }

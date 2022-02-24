@@ -4,6 +4,10 @@ Route::get('admin','usercontroller@getlogin');
 Route::get('admin_login','usercontroller@getlogin');
 Route::post('admin/login','usercontroller@postlogin');
 Route::get('admin/logout','usercontroller@getlogout');
+Route::post('registration','usercontroller@registration');
+Route::post('resetacconut','usercontroller@resetacconut');
+Route::get('logout','usercontroller@logout');
+
 
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
@@ -186,16 +190,16 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('change_province/{id}','c_ajax@change_province');
 		Route::get('change_district/{id}','c_ajax@change_district');
 		Route::get('change_district_street/{id}','c_ajax@change_district_street');
-
 	});
-
-	
 });
 
 Route::get('/','c_frontend@home');
+
 Route::get('signin','c_frontend@get_signin');
 Route::get('signup','c_frontend@get_signup');
-Route::get('logout','usercontroller@logout');
+Route::get('resetpassword','c_frontend@getresetpassword');
+Route::get('profile','c_frontend@profile');
+Route::get('messages','c_frontend@messages');
 
 Route::get('sitemap.xml','c_frontend@sitemap');
 Route::get('wishlist','c_frontend@wishlist');

@@ -11,7 +11,6 @@
 @include('layout.header')
 
 <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-fade="true">
-
 	<div class="slide kenburns" data-bg-image="images/slider/notgeneric_bg3.jpg">
 		<div class="bg-overlay"></div>
 		<div class="container">
@@ -22,7 +21,6 @@
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <section class="p-b-0">

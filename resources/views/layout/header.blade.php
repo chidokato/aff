@@ -47,7 +47,7 @@
 			<ul class="text-center">
 				<li><a href="profile"><i class="icon-user"></i>My profile</a></li>
 				<li><a href="messages"><i class="icon-mail"></i>Messages</a></li>
-				<li><a href="settings"><i class="icon-settings"></i>Settings</a></li>
+				<!-- <li><a href="settings"><i class="icon-settings"></i>Settings</a></li> -->
 				<li><a href="logout"><i class="icon-log-out"></i>Sing Out</a>
 			</li>
 			</ul>

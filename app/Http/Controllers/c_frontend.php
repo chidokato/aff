@@ -123,14 +123,17 @@ class c_frontend extends Controller
         $articles = articles::where('slug',$arurl)->first();
         
         $id = $articles['id'];
-        $articles->hits = $articles->hits + 1;
-        $articles->save();
+        // $articles->hits = $articles['hits'] + 1;
+        // $articles->save();
 
         $lienquan = articles::where('status','true')
-            ->where('category_id',$articles->category_id)
+            ->where('category_id',$articles['category_id'])
             ->whereNotin('id',[$id])
             ->take(8)
             ->get();
+        if ($articles['sort_by'] == 1) {
+            return view('pages.articles_product',['articles'=>$articles,'lienquan'=>$lienquan]);
+        }
         if ($articles['sort_by'] == 2) {
             return view('pages.articles',['articles'=>$articles,'lienquan'=>$lienquan]);
         }
@@ -183,14 +186,25 @@ class c_frontend extends Controller
 
     public function get_signin()
     {
-        return view('pages.signin',[]);
+        return view('pages.account.signin',[]);
     }
 
     public function get_signup()
     {
-        return view('pages.signup',[]);
+        return view('pages.account.signup',[]);
     }
-
+    public function getresetpassword()
+    {
+        return view('pages.account.getresetpassword');
+    }
+    public function profile()
+    {
+        return view('pages.account.profile');
+    }
+    public function messages()
+    {
+        return view('pages.account.messages');
+    }
 }
 
 

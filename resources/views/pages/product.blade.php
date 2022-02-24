@@ -63,8 +63,8 @@
 @foreach($product as $val)
 <div class="grid-item" style="padding: 0px 20px 20px 0px; position: absolute; left: 0px; top: 0px;">
 <div class="product">
-<div class="product-image">
-<a href="#"><img alt="Shop product image!" src="data/product/300/{{$val->img}}"></a>
+<div class="product-image product-list">
+<a href="{{$val->category->slug}}/{{$val->slug}}"><img alt="Shop product image!" src="data/product/300/{{$val->img}}"></a>
 <!-- <a href="#"><img alt="Shop product image!" src="images/shop/products/10.jpg"></a> -->
 <span class="product-new">NEW</span>
 <span class="product-wishlist">
@@ -77,7 +77,7 @@
 <div class="product-description">
 <div class="product-category">{{$val->category->name}}</div>
 <div class="product-title">
-<h3><a href="#">{{$val->name}}</a></h3>
+<h3><a href="{{$val->category->slug}}/{{$val->slug}}">{{$val->name}}</a></h3>
 </div>
 <div class="product-price"><ins></ins>
 </div>
