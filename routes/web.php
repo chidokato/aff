@@ -7,6 +7,7 @@ Route::get('admin/logout','usercontroller@getlogout');
 Route::post('registration','usercontroller@registration');
 Route::post('resetacconut','usercontroller@resetacconut');
 Route::get('logout','usercontroller@logout');
+Route::post('registration/{id}','usercontroller@postedit');
 
 
 Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){

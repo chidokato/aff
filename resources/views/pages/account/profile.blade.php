@@ -12,11 +12,11 @@
 
 <div class="form-sign profile" style="background: url(images/slider/notgeneric_bg3.jpg);">
 	<div class="form">
-		<form action="registration" class="form-grey-fields" method="post">
+		<form action="registration/{{Auth::User()->id}}" class="form-grey-fields" method="post" enctype="multipart/form-data"><input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<div class="content clearfix">
 				<div class="text-left">
 					<img src="data/user/{{Auth::User()->avatar}}" class="avatar avatar-lg">
-					<input type="file" name="avatar">
+					<input type="file" name="img">
 				</div>
 				<hr>
 				<div class="wizard-content body current" id="wizard1-p-0" role="tabpanel" aria-labelledby="wizard1-h-0" aria-hidden="false" style="">
@@ -28,7 +28,7 @@
 							<div class="input-group-prepend">
 							<span class="input-group-text" id="basic-addon1">@</span>
 							</div>
-							<input type="text" class="form-control" name="username" value="{{Auth::User()->name}}" placeholder="Tài khoản">
+							<input type="text" class="form-control" name="name" value="{{Auth::User()->name}}" placeholder="Tài khoản">
 							</div>
 						</div>
 						<div class="form-group col-md-6">

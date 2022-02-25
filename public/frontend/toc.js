@@ -1,17 +1,12 @@
 $(document).on("click", 'a[href^="#"]', function (e) {
-  // target element id
   var id = $(this).attr("href");
-  // target element
   var $id = $(id);
   if ($id.length === 0) {
     return;
   }
-  // prevent standard hash navigation (avoid blinking in IE)
   e.preventDefault();
-  // top position relative to the document
   var pos = $id.offset().top;
-  // animated top scrolling
-  $("body, html").animate({ scrollTop: pos }, 0);
+  $("body, html").animate({ scrollTop: pos }, 300);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -78,7 +73,7 @@ function TableOfContents(container, output) {
 
       var anchor = full_xu_ly(titleText.replace(/ /g, "_"));
 
-      toc += '<li><a href="#' + anchor + '">' + titleText + "</a>";
+      toc += '<li><a class="scroll-to" href="#' + anchor + '">' + titleText + "</a>";
 
       return (
         "<h" +
@@ -103,7 +98,7 @@ function TableOfContents(container, output) {
 
 
 $(window).scroll(function() {
-    var scrollDistance = $(window).scrollTop() + 50;
+    var scrollDistance = $(window).scrollTop() + 40;
     $('h2,h3').each(function(i) {
         if ($(this).position().top <= scrollDistance) {
             $('#toc ul ul li a.active').removeClass('active');
@@ -115,6 +110,6 @@ $(window).scroll(function() {
 $(document).on('click', 'a[href^="#"]', function (event) {
     event.preventDefault();
     $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top - 100 //Add this
+        scrollTop: $($.attr(this, 'href')).offset().top - 120 //Add this
     }, 0);
 });

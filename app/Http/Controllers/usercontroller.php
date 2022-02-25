@@ -126,6 +126,7 @@ class usercontroller extends Controller
         $user->phone = $Request->phone;
         $user->birthday = $Request->birthday;
         $user->facebook = $Request->facebook;
+        $user->address = $Request->address;
         if($user->permission > 0)
         {
             $user->permission = $Request->permission;
@@ -153,7 +154,7 @@ class usercontroller extends Controller
         $user->save();
 
         // return redirect('admin/user/edit/'.$id)->with('Alerts','Thành công');
-        return redirect('admin/user/list')->with('Alerts','Thành công');
+        return redirect()->back();
     }
 
     public function getdelete($id)

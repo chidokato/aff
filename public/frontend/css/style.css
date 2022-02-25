@@ -109,7 +109,7 @@ button:focus {
 	display: flex;
     align-items: center;
 }	
-
+.product .product-image .img-detail-product{ height: 350px; object-fit: cover; }
 
 
 @media (max-width: 1024px){

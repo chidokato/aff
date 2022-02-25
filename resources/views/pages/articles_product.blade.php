@@ -17,25 +17,21 @@
 <div class="content col-lg-9">
 <div class="product">
 <div class="row m-b-40">
-<div class="col-lg-5">
-<div class="product-image">
-
-<div class="carousel dots-inside dots-dark arrows-visible" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="2500" data-lightbox="gallery">
-<a href="images/shop/products/product-large.jpg" data-lightbox="image" title="Shop product image!"><img alt="Shop product image!" src="images/shop/products/1.jpg">
-</a>
-<a href="images/shop/products/product-large.jpg" data-lightbox="image" title="Shop product image!"><img alt="Shop product image!" src="images/shop/products/2.jpg">
- </a>
-</div>
-
-</div>
-</div>
 <div class="col-lg-7">
-<div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Consume Tshirt</a></h3>
+<div class="product-image">
+<div class="carousel dots-inside dots-dark arrows-visible" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="2500" data-lightbox="gallery">
+<a href="data/product/{{$articles->img}}" data-lightbox="image"><img class="img-detail-product"  alt="{{$articles->name}}" src="data/product/{{$articles->img}}"></a>
+<!-- <a href="images/shop/products/product-large.jpg" data-lightbox="image" title="Shop product image!"><img alt="Shop product image!" src="images/shop/products/2.jpg"></a> -->
 </div>
-<div class="product-price"><ins>$39.00</ins>
+</div>
+</div>
+<div class="col-lg-5">
+<div class="product-description">
+<div class="product-category">{{$articles->category->name}}</div>
+<div class="product-title">
+<h3><a>{{$articles->name}}</a></h3>
+</div>
+<div class="product-price"><ins>{{ isset($articles->product->price) && $articles->product->price != '' ? number_format($articles->product->price)."đ" : '' }}</ins>
 </div>
 <div class="product-rate">
 <i class="fa fa-star"></i>
@@ -44,48 +40,11 @@
 <i class="fa fa-star"></i>
 <i class="fa fa-star-half-o"></i>
 </div>
-<div class="product-reviews"><a href="#">3 customer reviews</a>
-</div>
-<div class="seperator m-b-10"></div>
-<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in</p>
-<div class="product-meta">
-<p>Tags: <a href="#" rel="tag">Clothing</a>, <a rel="tag" href="#">T-shirts</a>
-</p>
-</div>
-<div class="seperator m-t-20 m-b-10"></div>
+<div class="product-reviews"><a href="#">15 customer reviews</a></div>
+<div class="seperator m-b-5"></div>
 </div>
 <div class="row">
-<div class="col-lg-6">
-<h6>Select the size</h6>
-<ul class="product-size">
-<li>
-<label>
-<input type="radio" checked="checked" value="option1" name="product-size"><span>xs</span>
-</label>
-</li>
-<li>
-<label>
-<input type="radio" checked="checked" value="option1" name="product-size"><span>s</span>
-</label>
-</li>
-<li>
-<label>
-<input type="radio" checked="checked" value="option1" name="product-size"><span>m</span>
-</label>
-</li>
-<li>
-<label>
-<input type="radio" checked="checked" value="option1" name="product-size"><span>l</span>
-</label>
-</li>
- <li>
-<label>
-<input type="radio" checked="checked" value="option1" name="product-size"><span>xl</span>
-</label>
-</li>
-</ul>
-</div>
-<div class="col-lg-6">
+<div class="col-lg-6 mb-3">
 <h6>Select the color</h6>
 <label class="sr-only">Color</label>
 <select style="padding:10px">
@@ -97,6 +56,20 @@
 <option value="">Pink</option>
 </select>
 </div>
+
+<div class="col-lg-6 mb-3"></div>
+
+<!-- <div class="col-lg-12">
+<h6>Select the size</h6>
+<ul class="product-size">
+<li><label><input type="radio" checked="checked" value="option1" name="product-size"><span>xs</span></label></li>
+<li><label><input type="radio" checked="checked" value="option1" name="product-size"><span>s</span></label></li>
+<li><label><input type="radio" checked="checked" value="option1" name="product-size"><span>m</span></label></li>
+<li><label><input type="radio" checked="checked" value="option1" name="product-size"><span>l</span></label></li>
+<li><label><input type="radio" checked="checked" value="option1" name="product-size"><span>xl</span></label></li>
+</ul>
+</div> -->
+
 <div class="col-lg-6">
 <h6>Select quantity</h6>
 <div class="cart-product-quantity">
