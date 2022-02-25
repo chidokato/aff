@@ -76,7 +76,7 @@
                                 {!! isset($val->img) ? '<img data-action="zoom" src="data/news/'.$val->img.'" />' : '<img data-action="zoom" src="'.$val->img2.'" />' !!}
                             </td>
                             <td>
-                                {{$val->name}}
+                                <a href="admin/news/edit/{{$val->id}}">{{$val->name}}</a>
                             </td>
                             <td>
                                 <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles' ><span class="checkmark"></span></label>
