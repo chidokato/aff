@@ -48,12 +48,10 @@ class c_frontend extends Controller
     public function sitemap()
     {
         $sitemap_category = category::where('status','true')->get();
-        $sitemap_product = product::where('status','true')->where('id',24)->get();
-        $sitemap_news = news::where('status','true')->get();
+        $sitemap_articles = articles::where('status','true')->get();
         return response()->view('pages.sitemap', [
             'sitemap_category' => $sitemap_category,
-            'sitemap_product' => $sitemap_product,
-            'sitemap_news' => $sitemap_news
+            'sitemap_articles' => $sitemap_articles,
             ])->header('Content-Type', 'text/xml');
     }
 
