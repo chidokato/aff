@@ -23,7 +23,7 @@
 	</div>
 </div>
 
-<section class="p-b-0">
+<!-- <section class="p-b-0">
 	<div class="container">
 		<div class="heading-text heading-section">
 			<h2>Review </h2>
@@ -57,34 +57,34 @@
 	</div>
 	</div>
 
-<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
-<div class="portfolio-item-wrap">
-<div class="portfolio-image">
-<a href="#"><img src="images/portfolio/61.jpg" alt=""></a>
-</div>
-<div class="portfolio-description">
-<a href="portfolio-page-grid-gallery.html">
-<h3>Let's Go Outside</h3>
-<span>Illustrations / Graphics</span>
-</a>
-</div>
-</div>
-</div>
+	<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-Media">
+	<div class="portfolio-item-wrap">
+	<div class="portfolio-image">
+	<a href="#"><img src="images/portfolio/61.jpg" alt=""></a>
+	</div>
+	<div class="portfolio-description">
+	<a href="portfolio-page-grid-gallery.html">
+	<h3>Let's Go Outside</h3>
+	<span>Illustrations / Graphics</span>
+	</a>
+	</div>
+	</div>
+	</div>
 
 
-<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-<div class="portfolio-item-wrap">
-<div class="portfolio-image">
-<a href="#"><img src="images/portfolio/65.jpg" alt=""></a>
-</div>
-<div class="portfolio-description" data-lightbox="gallery">
-<a title="Photoshop Mock-up!" data-lightbox="gallery-image" href="images/portfolio/80l.jpg"><i class="icon-copy"></i></a>
-<a title="Paper Pouch!" data-lightbox="gallery-image" href="images/portfolio/81l.jpg" class="hidden"></a>
-<a title="Mock-up" data-lightbox="gallery-image" href="images/portfolio/82l.jpg" class="hidden"></a>
-<a href="portfolio-page-grid-gallery.html"><i class="icon-link"></i></a>
-</div>
-</div>
-</div>
+	<div class="portfolio-item img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
+	<div class="portfolio-item-wrap">
+	<div class="portfolio-image">
+	<a href="#"><img src="images/portfolio/65.jpg" alt=""></a>
+	</div>
+	<div class="portfolio-description" data-lightbox="gallery">
+	<a title="Photoshop Mock-up!" data-lightbox="gallery-image" href="images/portfolio/80l.jpg"><i class="icon-copy"></i></a>
+	<a title="Paper Pouch!" data-lightbox="gallery-image" href="images/portfolio/81l.jpg" class="hidden"></a>
+	<a title="Mock-up" data-lightbox="gallery-image" href="images/portfolio/82l.jpg" class="hidden"></a>
+	<a href="portfolio-page-grid-gallery.html"><i class="icon-link"></i></a>
+	</div>
+	</div>
+	</div>
 
 
 <div class="portfolio-item img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
@@ -144,11 +144,11 @@
 </div>
 
 </div>
-</section>
+</section> -->
 
 
 
-<section>
+<!-- <section>
 <div class="container">
 <div class="heading-text heading-section text-center">
 <h2>SERVICES</h2>
@@ -289,83 +289,40 @@
 </div>
 </div>
 </div>
-</section>
+</section> -->
 
 
 
 <section class="content background-grey">
 <div class="container">
 <div class="heading-text heading-section">
-<h2>OUR BLOG</h2>
-<span class="lead">The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus,
+<h2>BẢN TIN MỚI NHẤT</h2>
+<!-- <span class="lead">The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus,
 orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id
 molestie ipsum volutpat quis. A true story, that never been told!. Fusce id mi diam, non ornare
-orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. </span>
+orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. </span> -->
 </div>
 <div id="blog" class="grid-layout post-3-columns m-b-30" data-item="post-item">
-
+@foreach($articles as $val)
 <div class="post-item border">
 <div class="post-item-wrap">
 <div class="post-image">
-<a href="#">
-<img alt="" src="images/blog/12.jpg">
+<a href="{{$val->category->slug}}/{{$val->slug}}">
+<img alt="" src="data/news/{{$val->img}}">
 </a>
-<span class="post-meta-category"><a href="#">Lifestyle</a></span>
+<span class="post-meta-category"><a href="#">{{$val->category->name}}</a></span>
 </div>
 <div class="post-item-description">
  <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
 <span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i>33
 Comments</a></span>
-<h2><a href="#">Standard post with a single image
-</a></h2>
-<p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-<a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
+<h2><a href="{{$val->category->slug}}/{{$val->slug}}">{{$val->name}}</a></h2>
+<p>{{$val->detail}}</p>
+<a href="{{$val->category->slug}}/{{$val->slug}}" class="item-link">Xem thêm <i class="icon-chevron-right"></i></a>
 </div>
 </div>
 </div>
-
-
-<div class="post-item border">
-<div class="post-item-wrap">
-<div class="post-image">
-<a href="#">
-<img alt="" src="images/blog/17.jpg">
-</a>
-<span class="post-meta-category"><a href="#">Science</a></span>
-</div>
-<div class="post-item-description">
-<span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-<span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i>33
-Comments</a></span>
-<h2><a href="#">Standard post with a single image
-</a></h2>
-<p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-<a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-</div>
-</div>
-</div>
-
-
-<div class="post-item border">
-<div class="post-item-wrap">
-<div class="post-image">
-<a href="#">
-<img alt="" src="images/blog/18.jpg">
-</a>
-<span class="post-meta-category"><a href="#">Science</a></span>
-</div>
-<div class="post-item-description">
-<span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
-<span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i>33
-Comments</a></span>
-<h2><a href="#">Standard post with a single image
-</a></h2>
-<p>Curabitur pulvinar euismod ante, ac sagittis ante posuere ac. Vivamus luctus commodo dolor porta feugiat. Fusce at velit id ligula pharetra laoreet.</p>
-<a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
-</div>
-</div>
-</div>
-
+@endforeach
 </div>
 </div>
 </section>
@@ -375,8 +332,8 @@ Comments</a></span>
 <section class="p-t-60">
 <div class="container">
 <div class="heading-text heading-section text-center">
-<h2>CLIENTS</h2>
-<span class="lead">Our awesome clients we've had the pleasure to work with! </span>
+<h2>KHÁCH HÀNG & ĐỐI TÁC</h2>
+<span class="lead">Những khách hàng tuyệt vời của chúng tôi, chúng tôi rất hân hạnh được làm việc cùng họ! </span>
  </div>
 <div class="carousel client-logos" data-items="6" data-items-sm="4" data-items-xs="3" data-items-xxs="2" data-margin="20" data-arrows="false" data-autoplay="true" data-autoplay="3000" data-loop="true">
 <div>
@@ -415,8 +372,8 @@ Comments</a></span>
 <section class="background-grey">
 <div class="container">
 <div class="heading-text heading-section text-center">
-<h2>MEET OUR TEAM</h2>
-<p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.
+<h2>ĐỘI NGŨ NHÂN SỰ</h2>
+<!-- <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus. -->
 </p>
 </div>
 <div class="row team-members">
