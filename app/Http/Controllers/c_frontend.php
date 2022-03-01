@@ -12,7 +12,9 @@ use App\images;
 use App\district;
 use App\mausac;
 use App\size;
+use App\messages;
 use Mail;
+use Auth;
 
 class c_frontend extends Controller
 {
@@ -55,21 +57,7 @@ class c_frontend extends Controller
             ])->header('Content-Type', 'text/xml');
     }
 
-    public function wishlist()
-    {
-        // $category = category::where('slug',$curl)->first();
-        return view('pages.wishlist');
-    }
-    public function myaccount()
-    {
-        // $category = category::where('slug',$curl)->first();
-        return view('pages.myaccount');
-    }
-    public function cart()
-    {
-        // $category = category::where('slug',$curl)->first();
-        return view('pages.cart');
-    }
+    
 
     public function category($curl)
     {
@@ -182,6 +170,22 @@ class c_frontend extends Controller
 		return redirect('/')->with('Alerts','Thành công');
     }
 
+    public function wishlist()
+    {
+        // $category = category::where('slug',$curl)->first();
+        return view('pages.wishlist');
+    }
+    public function myaccount()
+    {
+        // $category = category::where('slug',$curl)->first();
+        return view('pages.myaccount');
+    }
+    public function cart()
+    {
+        // $category = category::where('slug',$curl)->first();
+        return view('pages.cart');
+    }
+
     public function get_signin()
     {
         return view('pages.account.signin',[]);
@@ -201,7 +205,25 @@ class c_frontend extends Controller
     }
     public function messages()
     {
-        return view('pages.account.messages');
+        $messages = messages::where('user_id', Auth::User()->id)->orderBy('id','desc')->get();
+        return view('pages.account.messages',['messages' => $messages]);
+    }
+    public function delall_messages($id){
+        $list = messages::where('user_id', $id)->get();
+        foreach ($list as $key => $value) {
+            $messages = messages::where('id',$value->id)->first();
+            $messages->delete();
+        }
+        return redirect()->back();
+    }
+    public function check_messages($id){
+        $list = messages::where('user_id', $id)->get();
+        foreach ($list as $key => $value) {
+            $messages = messages::where('id',$value->id)->first();
+            $messages->status = 'acctive';
+            $messages->save();
+        }
+        return redirect()->back();
     }
 }
 

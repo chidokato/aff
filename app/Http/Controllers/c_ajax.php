@@ -21,6 +21,7 @@ use App\province;
 use App\district;
 use App\ward;
 use App\street;
+use App\messages;
 
 class c_ajax extends Controller
 {   
@@ -214,5 +215,23 @@ class c_ajax extends Controller
         }
     }
     // end location
+
+    // messages
+    public function update_status_messages($id)
+    {
+        if(Request::ajax()){
+            $messages = messages::find($id);
+            $messages->status = 'acctive';
+            $messages->save();
+        }
+    }
+    public function del_messages($id)
+    {
+        if(Request::ajax()){
+            $messages = messages::find($id);
+            $messages->delete();
+        }
+    }
+    // messages
 }
 ?>

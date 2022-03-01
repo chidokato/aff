@@ -12,7 +12,7 @@
 
 <div class="form-sign" style="background: url(images/slider/notgeneric_bg3.jpg);">
 	<div class="form">
-		<form action="registration" class="form-grey-fields" method="post">
+		<form id="form2" action="registration" class="form-grey-fields form-validate" method="post">
 			<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<h3>Đăng ký thành viên !</h3>
 			<p>Hoàn toàn miễn phí.</p>

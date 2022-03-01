@@ -154,7 +154,7 @@ class usercontroller extends Controller
         $user->save();
 
         // return redirect('admin/user/edit/'.$id)->with('Alerts','Thành công');
-        return redirect()->back();
+        return redirect()->back()->with('Success','Thành công');
     }
 
     public function getdelete($id)

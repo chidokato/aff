@@ -55,7 +55,7 @@
 								<a href="{{asset('')}}">sổ tay tiêu dùng</a>
 								<a href="{{$articles->category->slug}}">{{$articles->category->name}}</a>
 							</div>
-						@include('layout.comment')
+						<!-- @include('layout.comment') -->
 						</div>
 					</div>
 				</div>

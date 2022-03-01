@@ -28,6 +28,9 @@
         <a class="nav-link" href="admin/news/list"><i class="fas fa-fw fa-chart-area"></i><span>Quản lý tin tức</span></a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="admin/messages/list"><i class="fas fa-fw fa-chart-area"></i><span>Quản lý messages</span></a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#setting"
             aria-expanded="true" aria-controls="setting">
             <i class="fas fa-fw fa-wrench"></i>

@@ -55,6 +55,8 @@
 <script src="frontend/js/jquery.js"></script>
 <script src="frontend/js/plugins.js"></script>
 <script src="frontend/js/functions.js"></script>
+<script src="frontend/validate/validate.min.js"></script>
+<script src="frontend/validate/valildate-rules.js"></script>
 @yield('script')
 <script src="frontend/toc.js"></script>
 </body>

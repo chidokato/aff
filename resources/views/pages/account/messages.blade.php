@@ -13,78 +13,26 @@
 <div class="form-sign profile" style="background: url(images/slider/notgeneric_bg3.jpg);">
 	<div class="form">
 		<div class="accordion text-left">
-			<button type="button" class="btn btn-xs mr-3"><i class="icon-check"> </i> Đã đọc tất cả</button>
-			<button type="button" class="btn btn-xs btn-pinterest"><i class="icon-trash-2"></i> Xóa tất cả</button>
+			<a href="check_messages/{{Auth::User()->id}}"><button type="button" class="btn btn-xs mr-3"><i class="icon-check"> </i> Đã đọc tất cả</button></a>
+			<a href="delall_messages/{{Auth::User()->id}}" onclick="dell()" ><button type="button" class="btn btn-xs btn-pinterest"><i class="icon-trash-2"></i> Xóa tất cả</button></a>
 			<hr>
-			<div class="ac-item acctive">
-				<h5 class="ac-title">Before you get started</h5>
-				<div class="ac-content" style="display: none;">
-					<p>A wonderful serenity has taken possession of my entire soul, like these sweet
-					mornings of spring which I enjoy with my whole heart.</p>
-					<p>I am alone, and feel the charm of existence in this spot, which was created for
-					the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the
-					exquisite sense of mere tranquil existence, that I neglect my talents. I should
-					be incapable of drawing a single stroke at the present moment; and yet I feel
-					that I never was a greater artist than now. </p>
-					<div class="text-right">
-						<span><i class="icon-calendar"></i> 20/2/2022</span>
-						<button type="button" class="btn btn-xs btn-pinterest ml-3"><i class="icon-trash-2"></i>Xóa</button>
+			@if(count($messages) > 0)
+				@foreach($messages as $val)
+				<div id="messages" class="ac-item {{ $val->status == 'acctive' ? '' : 'acctive' }} ">
+					<input type="hidden" name="id" id="id" value="{{$val->id}}" />
+					<h5 class="ac-title">{{$val->name}}</h5>
+					<div class="ac-content" style="display: none;">
+						{!! $val->content !!}
+						<div class="text-right">
+							<span><i class="icon-calendar"></i> {{date('d/m/Y',strtotime($val->created_at))}}</span>
+							<button id="del_messages" type="button" class="btn btn-xs btn-pinterest ml-3"><i class="icon-trash-2"></i>Xóa</button>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="ac-item acctive">
-				<h5 class="ac-title">Before you get started</h5>
-				<div class="ac-content" style="display: none;">
-					<p>A wonderful serenity has taken possession of my entire soul, like these sweet
-					mornings of spring which I enjoy with my whole heart.</p>
-					<p>I am alone, and feel the charm of existence in this spot, which was created for
-					the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the
-					exquisite sense of mere tranquil existence, that I neglect my talents. I should
-					be incapable of drawing a single stroke at the present moment; and yet I feel
-					that I never was a greater artist than now. </p>
-					<div class="text-right">
-						<span><i class="icon-calendar"></i> 20/2/2022</span>
-						<button type="button" class="btn btn-xs btn-pinterest ml-3"><i class="icon-trash-2"></i>Xóa</button>
-					</div>
-				</div>
-			</div>
-			<div class="ac-item acctive">
-				<h5 class="ac-title">Before you get started</h5>
-				<div class="ac-content" style="display: none;">
-					<p>A wonderful serenity has taken possession of my entire soul, like these sweet
-					mornings of spring which I enjoy with my whole heart.</p>
-					<p>I am alone, and feel the charm of existence in this spot, which was created for
-					the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the
-					exquisite sense of mere tranquil existence, that I neglect my talents. I should
-					be incapable of drawing a single stroke at the present moment; and yet I feel
-					that I never was a greater artist than now. </p>
-					<div class="text-right">
-						<span><i class="icon-calendar"></i> 20/2/2022</span>
-						<button type="button" class="btn btn-xs btn-pinterest ml-3"><i class="icon-trash-2"></i>Xóa</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="ac-item acctive">
-				<h5 class="ac-title">Before you get started</h5>
-				<div class="ac-content" style="display: none;">
-					<p>A wonderful serenity has taken possession of my entire soul, like these sweet
-					mornings of spring which I enjoy with my whole heart.</p>
-					<p>I am alone, and feel the charm of existence in this spot, which was created for
-					the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the
-					exquisite sense of mere tranquil existence, that I neglect my talents. I should
-					be incapable of drawing a single stroke at the present moment; and yet I feel
-					that I never was a greater artist than now. </p>
-					<div class="text-right">
-						<span><i class="icon-calendar"></i> 20/2/2022</span>
-						<button type="button" class="btn btn-xs btn-pinterest ml-3"><i class="icon-trash-2"></i>Xóa</button>
-					</div>
-				</div>
-			</div>
-
-			
-			
-		
+				@endforeach
+				@else
+				<p>Bạn không có thông báo nào !</p>
+			@endif
 		</div>
 	</div>
 </div>
@@ -94,7 +42,24 @@
 $(document).ready(function(){
   	$('h5.ac-title').click(function(e){
 	  	$(this).parent().removeClass('acctive');
+	  	var id = $(this).parents('#messages').find('input[id="id"]').val();
+	  	$.ajax({
+            url:  'update_status_messages/'+id, type: 'GET', cache: false, data: {},
+        });
 	});
+
+	$('button#del_messages').click(function(e){
+	  	var id = $(this).parents('#messages').find('input[id="id"]').val();
+	  	$.ajax({
+            url:  'del_messages/'+id, type: 'GET', cache: false, data: {},
+        });
+ 		$(this).parents('#messages').hide();
+	});
+
+	function dell() {alert("Bạn có chắc muốn xóa bản ghi!");}
 });
+
+
+
 </script>
 @endsection

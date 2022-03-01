@@ -45,5 +45,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\province','user_id','id');
     }
+    public function messages()
+    {
+        return $this->hasMany('App\messages','user_id','id');
+    }
 }
 

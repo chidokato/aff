@@ -12,13 +12,13 @@
 
 <div class="form-sign" style="background: url(images/slider/notgeneric_bg3.jpg);">
 	<div class="form">
-		<form action="admin/login" class="form-grey-fields" method="post">
+		<form id="form1" action="admin/login" class="form-grey-fields form-validate" method="post">
 			<input type="hidden" name="_token" value="{{csrf_token()}}" />
 			<h3>Chào mừng bạn !</h3>
 			<p>Đăng nhập để trải nghiệm tốt.</p>
 			<div class="form-group">
 				<label class="sr-only">Tài khoản</label>
-				<input name="name" placeholder="Tài khoản" class="form-control" type="text">
+				<input name="name" placeholder="Tài khoản" class="form-control" type="text" required>
 			</div>
 			<div class="form-group m-b-5">
 				<label class="sr-only">Mật khẩu</label>

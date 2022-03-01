@@ -111,11 +111,26 @@ button:focus {
 }	
 .product .product-image .img-detail-product{ height: 350px; object-fit: cover; }
 #header.header-sticky.sticky-active .header-inner, #header.header-sticky.sticky-active #header-wrap { box-shadow: 0 5px 6px rgb(0 0 0 / 6%)}
-
+.is-invalid:not(.form-control) {
+    text-align: left;
+}
+.alert {
+    padding: 0.2rem 1.5rem;
+}
+.alert .close {
+    padding: 3px 18px;
+}
 @media (max-width: 1024px){
 	.content, .sidebar {
 	    padding-left: 0;
 	    padding-right: 0;
+	}
+
+}
+
+@media (max-width: 768px){
+	.profile .form {
+	    width: auto;
 	}
 
 }

@@ -267,7 +267,7 @@ class c_product extends Controller
             }
         }
         
-        return redirect('admin/product/edit/'.$id)->with('Alerts','Thành công');
+        return redirect('admin/product/edit/'.$id)->with('Success','Thành công');
     }
 
     public function getdelete($id)

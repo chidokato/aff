@@ -9,10 +9,10 @@
 @section('content')
 
 @include('layout.header_page')
-
 <div class="form-sign profile" style="background: url(images/slider/notgeneric_bg3.jpg);">
 	<div class="form">
 		<form action="registration/{{Auth::User()->id}}" class="form-grey-fields" method="post" enctype="multipart/form-data"><input type="hidden" name="_token" value="{{csrf_token()}}" />
+			<input type="hidden" name="permission" value="5" />
 			<div class="content clearfix">
 				<div class="text-left">
 					<img src="data/user/{{Auth::User()->avatar}}" class="avatar avatar-lg">
@@ -69,12 +69,19 @@
 						</div>
 
 					</div>
-					<div class="text-left"><button type="submit" class="btn">Lưu lại</button></div>
+					<div class="text-left" >
+						<button type="submit" class="btn">Lưu lại</button> <span id="hidden">{{session('Success')}}</span>
+					</div>
 				</div>
 			</div>
+			
 		</form>
 	</div>
 </div>
+
+<style type="text/css">
+	#hidden{margin-left: 20px;}
+</style>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
@@ -89,6 +96,10 @@
             }
         });
     });
+
+    setTimeout(function() {
+	    $('#hidden').fadeOut('fast');
+	}, 1000); // <-- time in milliseconds
 </script>
 
 @endsection

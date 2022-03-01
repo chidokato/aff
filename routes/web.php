@@ -70,10 +70,19 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('delete/{id}','c_news@getdelete');
 		Route::post('delete_all','c_news@delete_all');
 		Route::post('search','c_news@search');
-
 		Route::post('addflast','c_news@addflast');
-		
 	});
+
+	Route::group(['prefix'=>'messages'],function(){
+		Route::get('list','c_messages@getlist');
+		Route::get('add','c_messages@getadd');
+		Route::post('add','c_messages@postadd');
+		Route::get('edit/{id}','c_messages@getedit');
+		Route::post('edit/{id}','c_messages@postedit');
+		Route::get('delete/{id}','c_messages@getdelete');
+		Route::post('search','c_messages@search');
+	});
+
 	Route::group(['prefix'=>'themes'],function(){
 		Route::get('list','c_themes@getlist');
 		Route::get('add','c_themes@getadd');
@@ -201,6 +210,11 @@ Route::get('signup','c_frontend@get_signup');
 Route::get('resetpassword','c_frontend@getresetpassword');
 Route::get('profile','c_frontend@profile');
 Route::get('messages','c_frontend@messages');
+
+Route::get('update_status_messages/{id}','c_ajax@update_status_messages');
+Route::get('del_messages/{id}','c_ajax@del_messages');
+Route::get('delall_messages/{id}','c_frontend@delall_messages');
+Route::get('check_messages/{id}','c_frontend@check_messages');
 
 Route::get('sitemap.xml','c_frontend@sitemap');
 Route::get('wishlist','c_frontend@wishlist');

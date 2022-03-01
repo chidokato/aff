@@ -54,7 +54,7 @@ label {
         color: #0016b3;
         font-size: 12px;
     }
-.alert{position: absolute;}
+.alert{position: absolute; top: 12px;}
 .input-custom{
 	border: none; border-radius: 0px;
 	border-bottom: 1px solid #ddd; padding-left: 0px
