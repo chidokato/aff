@@ -307,17 +307,17 @@ orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. </s
 <div class="post-item border">
 <div class="post-item-wrap">
 <div class="post-image">
-<a href="{{$val->category->slug}}/{{$val->slug}}">
-<img alt="" src="data/news/{{$val->img}}">
-</a>
-<span class="post-meta-category"><a href="#">{{$val->category->name}}</a></span>
+	<a href="{{$val->category->slug}}/{{$val->slug}}">
+	<img alt="" src="data/news/{{$val->img}}">
+	</a>
+	<span class="post-meta-category"><a href="#">{{$val->category->name}}</a></span>
 </div>
 <div class="post-item-description">
  <span class="post-meta-date"><i class="fa fa-calendar-o"></i>Jan 21, 2017</span>
 <span class="post-meta-comments"><a href="#"><i class="fa fa-comments-o"></i>33
 Comments</a></span>
 <h2><a href="{{$val->category->slug}}/{{$val->slug}}">{{$val->name}}</a></h2>
-<p>{{$val->detail}}</p>
+<p class="detail">{{$val->detail}}</p>
 <a href="{{$val->category->slug}}/{{$val->slug}}" class="item-link">Xem thêm <i class="icon-chevron-right"></i></a>
 </div>
 </div>
