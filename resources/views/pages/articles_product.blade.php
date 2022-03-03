@@ -20,8 +20,11 @@
 <div class="col-lg-7">
 <div class="product-image">
 <div class="carousel dots-inside dots-dark arrows-visible" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="2500" data-lightbox="gallery">
-<a href="data/product/{{$articles->img}}" data-lightbox="image"><img class="img-detail-product"  alt="{{$articles->name}}" src="data/product/{{$articles->img}}"></a>
-<!-- <a href="images/shop/products/product-large.jpg" data-lightbox="image" title="Shop product image!"><img alt="Shop product image!" src="images/shop/products/2.jpg"></a> -->
+<img class="img-detail-product"  alt="{{$articles->name}}" src="data/product/{{$articles->img}}">
+@foreach($articles->images as $val)
+<!-- <a href="data/product/{{$val->img}}" data-lightbox="image"><img class="img-detail-product"  alt="{{$articles->name}}" src="data/product/{{$val->img}}"></a> -->
+<img class="img-detail-product"  alt="{{$articles->name}}" src="data/product/{{$val->img}}">
+@endforeach
 </div>
 </div>
 </div>
@@ -40,20 +43,15 @@
 <i class="fa fa-star"></i>
 <i class="fa fa-star-half-o"></i>
 </div>
-<div class="product-reviews"><a href="#">15 customer reviews</a></div>
+<div class="product-reviews"><a href="#">{{rand(10,30)}} customer reviews</a></div>
 <div class="seperator m-b-5"></div>
 </div>
 <div class="row">
 <div class="col-lg-6 mb-3">
-<h6>Select the color</h6>
-<label class="sr-only">Color</label>
+<h6>Chọn màu sắc</h6>
 <select style="padding:10px">
 <option value="">Select color…</option>
 <option value="">White</option>
-<option value="" selected="selected">Green</option>
-<option value="">Brown</option>
-<option value="">Yellow</option>
-<option value="">Pink</option>
 </select>
 </div>
 
@@ -71,7 +69,7 @@
 </div> -->
 
 <div class="col-lg-6">
-<h6>Select quantity</h6>
+<h6>Số lượng</h6>
 <div class="cart-product-quantity">
 <div class="quantity m-l-5">
 <input type="button" class="minus" value="-">
@@ -81,8 +79,8 @@
 </div>
 </div>
 <div class="col-lg-6">
-<h6>Add to Cart</h6>
-<a class="btn" href="#"><i class="icon-shopping-cart"></i> Add to cart</a>
+<h6 style="color: #fff">Mua hàng</h6>
+<a class="btn" href="#"><i class="icon-shopping-cart"></i> Mua hàng</a>
 </div>
 </div>
 </div>
@@ -423,107 +421,12 @@ Reviews <span>(3)</span>
 
 <div class="sidebar col-lg-3">
 
-<div class="widget clearfix widget-archive">
-<h4 class="widget-title">Product categories</h4>
-<ul class="list list-lines">
-<li><a href="#">Bags</a> <span class="count">(6)</span>
-</li>
+@include('layout.sidebar_pro')
 
-</ul>
-</div>
-<div class="widget clearfix widget-shop">
-<h4 class="widget-title">Latest Products</h4>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/10.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Bolt Sweatshirt</a></h3>
-</div>
-<div class="product-price"><del>$30.00</del><ins>$15.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/6.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Consume Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/7.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Man</div>
-<div class="product-title">
-<h3><a href="#">Logo Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-</div>
-<div class="widget clearfix widget-tags">
-<h4 class="widget-title">Tags</h4>
-<div class="tags">
-<a href="#">Design</a>
-<a href="#">Portfolio</a>
-<a href="#">Digital</a>
-<a href="#">Branding</a>
-<a href="#">HTML</a>
-<a href="#">Clean</a>
-<a href="#">Peace</a>
-<a href="#">Love</a>
-<a href="#">CSS3</a>
-<a href="#">jQuery</a>
-</div>
-</div>
-<div class="widget clearfix widget-newsletter">
-<form class="form-inline" method="get" action="#">
-<h4 class="widget-title">Subscribe for Latest Offers</h4>
-<small>Subscribe to our Newsletter to get Sales Offers &amp; Coupon Codes etc.</small>
-<div class="input-group">
-<input type="email" placeholder="Enter your Email" class="form-control required email" name="widget-subscribe-form-email" aria-required="true">
-<span class="input-group-btn">
-<button type="submit" class="btn"><i class="fa fa-paper-plane"></i></button>
-</span>
-</div>
-</form>
-</div>
+
+
+
+
 </div>
 
 </div>

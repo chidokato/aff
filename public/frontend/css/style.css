@@ -62,7 +62,7 @@ button:focus {
 }
 
 .product-list img {
-    height: 200px !important;
+    height: 260px !important;
     object-fit: cover;
 }
 .header-extras .p-dropdown .p-dropdown-content{
@@ -120,6 +120,11 @@ button:focus {
 .alert .close {
     padding: 3px 18px;
 }
+.product .product-price {
+    width: auto;}
+
+
+
 @media (max-width: 1024px){
 	.content, .sidebar {
 	    padding-left: 0;

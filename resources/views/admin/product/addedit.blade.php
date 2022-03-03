@@ -12,7 +12,8 @@ if(isset($data)){
 <div class="text-right mb-3">
     <button type="button" onclick="goBack()" class="btn-warning mr-2"><i class="fas fa-arrow-left"></i> Back</button>
     <button type="reset" class="btn-danger mr-2"><i class="fas fa-sync"></i> Reset</button>
-    <button type="submit" class="btn-success"><i class="far fa-save"></i> Save</button>
+    <button type="submit" class="btn-success"><i class="far fa-save"></i> Save & back</button>
+    <!-- <button type="button" id="submit" class="btn-success"><i class="far fa-save"></i> Save</button> -->
 </div>
 <div class="row">
     <div class="col-xl-9 col-lg-9">

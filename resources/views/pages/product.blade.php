@@ -27,7 +27,7 @@
 <div class="col-lg-3">
 <div class="order-select">
  <h6>Sort by</h6>
-<p>Showing 1–12 of 25 results</p>
+<p>{{count($product)}} sản phẩm</p>
 <form method="get">
 <select class="form-control">
 <option value="order" selected="selected">Default sorting</option>
@@ -64,7 +64,8 @@
 <div class="grid-item" style="padding: 0px 20px 20px 0px; position: absolute; left: 0px; top: 0px;">
 <div class="product">
 <div class="product-image product-list">
-<a href="{{$val->category->slug}}/{{$val->slug}}"><img alt="Shop product image!" src="data/product/300/{{$val->img}}"></a>
+<!-- <a href="{{$val->category->slug}}/{{$val->slug}}"><img alt="Shop product image!" src="data/product/300/{{$val->img}}"></a> -->
+<a href="{{$val->category->slug}}/{{$val->slug}}"><img alt="Shop product image!" src="{{ isset($val->img) ? 'data/product/300/'.$val->img : 'data/no_image.jpg' }}"></a>
 <!-- <a href="#"><img alt="Shop product image!" src="images/shop/products/10.jpg"></a> -->
 <span class="product-new">NEW</span>
 <span class="product-wishlist">
@@ -79,7 +80,10 @@
 <div class="product-title">
 <h3><a href="{{$val->category->slug}}/{{$val->slug}}">{{$val->name}}</a></h3>
 </div>
-<div class="product-price"><ins></ins>
+<div class="product-price">
+<del>
+	{{ isset($val->product->oldprice) && $val->product->oldprice != '' ? number_format($val->product->oldprice)."đ" : '' }}
+</del><ins>{{ isset($val->product->price) && $val->product->price != '' ? number_format($val->product->price)."đ" : '' }}</ins>
 </div>
 <div class="product-rate">
 <i class="fa fa-star"></i>
@@ -88,7 +92,7 @@
 <i class="fa fa-star"></i>
 <i class="fa fa-star-half-o"></i>
 </div>
-<div class="product-reviews"><a href="#">{{ isset($val->product->price) && $val->product->price != '' ? number_format($val->product->price)."đ" : '' }}</a>
+<div class="product-reviews"><a href="#">{{rand(10,20)}} customer reviews</a>
 </div>
 </div>
 </div>

@@ -181,8 +181,6 @@ class usercontroller extends Controller
     		'name' => 'required',
     		'password' => 'required|min:3|max:32'
     		],[]);
-
-        
     	if(Auth::attempt(['name'=>$request->name,'password'=>$request->password]))
     	{
             if (Auth::User()->permission < 5) {
@@ -193,7 +191,7 @@ class usercontroller extends Controller
     	}
     	else
     	{
-            return redirect()->back();
+            return redirect()->back()->with('Success','Tài khoản hoặc mật khẩu không đúng !');
     	}
     }
     public function getlogout()

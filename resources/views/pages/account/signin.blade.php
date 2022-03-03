@@ -30,11 +30,21 @@
 			</a>
 			</div>
 			<div class="text-left form-group">
-			<button class="btn" type="submit">Đăng nhập</button>
+			<button class="btn" type="submit">Đăng nhập</button> <small id="hidden">{{session('Success')}}</small>
 			</div>
-			<p class="text-left">Bạn chưa có tài khoản? <a href="signup">Đăng ký ngay</a></p>
+			<p class="text-left">Bạn chưa có tài khoản? <a href="signup">Đăng ký ngay</a> </p>
 		</form>
 	</div>
 </div>
+
+<style type="text/css">
+	#hidden{color: red}
+</style>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    setTimeout(function() {
+	    $('#hidden').fadeOut('fast');
+	}, 2000);
+</script>
 
 @endsection

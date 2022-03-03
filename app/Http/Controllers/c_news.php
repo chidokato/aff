@@ -70,7 +70,11 @@ class c_news extends Controller
         ] );
         // seo
         $seo = new seo;
-        $seo->title = $Request->title;
+        if ($Request->title == "") {
+            $seo->title = $Request->name;
+        }else{
+            $seo->title = $Request->title;
+        }
         $seo->description = $Request->description;
         $seo->keywords = $Request->keywords;
         $seo->robot = $Request->robot;
@@ -158,7 +162,11 @@ class c_news extends Controller
         $articles->save();
         
         $seo = seo::find($articles->seo_id);
-        $seo->title = $Request->title;
+        if ($Request->title == "") {
+            $seo->title = $Request->name;
+        }else{
+            $seo->title = $Request->title;
+        }
         $seo->description = $Request->description;
         $seo->keywords = $Request->keywords;
         $seo->robot = $Request->robot;

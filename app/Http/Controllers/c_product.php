@@ -243,10 +243,10 @@ class c_product extends Controller
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
-        $product->province_id = $Request->province_id;
-        $product->district_id = $Request->district_id;
-        $product->ward_id = $Request->ward_id;
-        $product->street_id = $Request->street_id;
+        if($Request->province_id)$product->province_id = $Request->province_id;
+        if($Request->district_id)$product->district_id = $Request->district_id;
+        if($Request->ward_id)$product->ward_id = $Request->ward_id;
+        if($Request->street_id)$product->street_id = $Request->street_id;
         if(isset($Request->mausac)){$product->mausac_id = implode(',', $Request->mausac);}
         else{$product->mausac_id='';}
         $product->save();
@@ -266,8 +266,8 @@ class c_product extends Controller
                 }
             }
         }
-        
-        return redirect('admin/product/edit/'.$id)->with('Success','Thành công');
+        return redirect('admin/product/list')->with('Success','Thành công');
+        // return redirect()->back()->with('Success','Thành công');
     }
 
     public function getdelete($id)

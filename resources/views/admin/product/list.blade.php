@@ -67,7 +67,7 @@
                     </thead>
                     <tbody>
                         @foreach($product as $val)
-                        <tr id="product">
+                        <tr id="articles">
                             <input type="hidden" id="id" value="{{$val->id}}" />
                             <td class="td_checkbox">
                                 <label class="container"><input type="checkbox" name="foo[]" value="{{$val->id}}"><span class="checkmark"></span></label>
@@ -79,7 +79,7 @@
                                 {{$val->name}}
                             </td>
                             <td>
-                                <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status' ><span class="checkmark"></span></label>
+                                <label class="container"><input <?php if($val->status == 'true'){echo "checked";} ?> type="checkbox" id='status_articles' ><span class="checkmark"></span></label>
                             </td>
                             <td>{{ isset($val->category->name) ? $val->category->name : '' }}</td>
                             <td>{{ isset($val->product->price) ? ($val->product->price).'đ' : '' }}</td>
