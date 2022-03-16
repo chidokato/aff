@@ -28,7 +28,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
 	});
 	Route::group(['prefix'=>'category'],function(){
-		Route::get('list','c_category@getlist');
+		Route::get('list','c_category@getlist')->middleware('can:superadmin');
 		Route::get('add','c_category@getadd');
 		Route::post('add','c_category@postadd');
 		Route::get('edit/{id}','c_category@getedit');
@@ -39,7 +39,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::post('search','c_category@search');
 	});
 	Route::group(['prefix'=>'menu'],function(){
-		Route::get('list','c_menu@getlist');
+		Route::get('list','c_menu@getlist')->middleware('can:superadmin');
 		Route::get('add','c_menu@getadd');
 		Route::post('add','c_menu@postadd');
 		Route::get('edit/{id}','c_menu@getedit');
@@ -50,7 +50,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::post('search','c_menu@search');
 	});
 	Route::group(['prefix'=>'product'],function(){
-		Route::get('list','c_product@getlist');
+		Route::get('list','c_product@getlist')->middleware('can:superadmin');
 		Route::get('add','c_product@getadd');
 		Route::post('add','c_product@postadd');
 		Route::get('edit/{id}','c_product@getedit');
@@ -61,7 +61,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::post('search','c_product@search');
 	});
 	Route::group(['prefix'=>'news'],function(){
-		Route::get('list','c_news@getlist');
+		Route::get('list','c_news@getlist')->middleware('can:superadmin');
 		Route::get('add','c_news@getadd');
 		Route::post('add','c_news@postadd');
 		Route::get('edit/{id}','c_news@getedit');
@@ -74,7 +74,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 	});
 
 	Route::group(['prefix'=>'messages'],function(){
-		Route::get('list','c_messages@getlist');
+		Route::get('list','c_messages@getlist')->middleware('can:superadmin');
 		Route::get('add','c_messages@getadd');
 		Route::post('add','c_messages@postadd');
 		Route::get('edit/{id}','c_messages@getedit');
@@ -84,7 +84,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 	});
 
 	Route::group(['prefix'=>'themes'],function(){
-		Route::get('list','c_themes@getlist');
+		Route::get('list','c_themes@getlist')->middleware('can:superadmin');
 		Route::get('add','c_themes@getadd');
 		Route::post('add','c_themes@postadd');
 		Route::get('edit/{id}','c_themes@getedit');
@@ -95,7 +95,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::post('search','c_themes@search');
 	});
 	Route::group(['prefix'=>'slider'],function(){
-		Route::get('list','c_slider@getlist');
+		Route::get('list','c_slider@getlist')->middleware('can:superadmin');
 		Route::get('add','c_slider@getadd');
 		Route::post('add','c_slider@postadd');
 		Route::get('edit/{id}','c_slider@getedit');
@@ -103,24 +103,24 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('delete/{id}','c_slider@getdelete');
 	});
 	Route::group(['prefix'=>'setting'],function(){
-		Route::get('list','c_setting@getlist');
+		Route::get('list','c_setting@getlist')->middleware('can:superadmin');
 		Route::post('edit/{id}','c_setting@postedit');
 	});
 
 	// giày dép
 	Route::group(['prefix'=>'giaydep'],function(){
-		Route::get('list','c_giaydep@getlist');
+		Route::get('list','c_giaydep@getlist')->middleware('can:superadmin');
 		Route::get('add','c_giaydep@getadd');
 		Route::post('edit','c_giaydep@postedit');
 	});
 	Route::group(['prefix'=>'quanlykho'],function(){
-		Route::get('list','c_quanlykho@getlist');
+		Route::get('list','c_quanlykho@getlist')->middleware('can:superadmin');
 		Route::get('edit/{id}','c_quanlykho@getedit');
 		Route::post('edit/{id}','c_quanlykho@postedit');
 		Route::get('delete/{qid}/{id}','c_quanlykho@getdelete');
 	});
 	Route::group(['prefix'=>'nhaphang'],function(){
-		Route::get('list','c_nhaphang@getlist');
+		Route::get('list','c_nhaphang@getlist')->middleware('can:superadmin');
 		Route::get('add','c_nhaphang@getadd');
 		Route::post('add','c_nhaphang@postadd'); // lưu đơn hàng
 		Route::get('edit/{id}','c_nhaphang@getedit'); // get edit
@@ -131,7 +131,7 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::post('search','c_nhaphang@search');
 	});
 	Route::group(['prefix'=>'banhang'],function(){
-		Route::get('list','c_banhang@getlist');
+		Route::get('list','c_banhang@getlist')->middleware('can:superadmin');
 		Route::get('add','c_banhang@getadd');
 		Route::post('add','c_banhang@postadd'); // lưu đơn hàng
 		Route::get('edit/{id}','c_banhang@getedit'); // get edit
@@ -145,19 +145,19 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 
 	// bất động sản
 	Route::group(['prefix'=>'province'],function(){
-		Route::get('list','c_province@getlist');
+		Route::get('list','c_province@getlist')->middleware('can:superadmin');
 		Route::post('loc','c_province@loc');
 	});
 	Route::group(['prefix'=>'district'],function(){
-		Route::get('list','c_district@getlist');
+		Route::get('list','c_district@getlist')->middleware('can:superadmin');
 		Route::post('loc','c_district@loc');
 	});
 	Route::group(['prefix'=>'ward'],function(){
-		Route::get('list','c_ward@getlist');
+		Route::get('list','c_ward@getlist')->middleware('can:superadmin');
 		Route::post('loc','c_ward@loc');
 	});
 	Route::group(['prefix'=>'street'],function(){
-		Route::get('list','c_street@getlist');
+		Route::get('list','c_street@getlist')->middleware('can:superadmin');
 		Route::post('loc','c_street@loc');
 	});
 	// end bất động sản

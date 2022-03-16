@@ -44,7 +44,7 @@
 <script>
     setTimeout(function() {
 	    $('#hidden').fadeOut('fast');
-	}, 2000);
+	}, 3000);
 </script>
 
 @endsection

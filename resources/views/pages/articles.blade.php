@@ -12,31 +12,26 @@
 
 <section id="page-content" class="sidebar-right" style="transform: none;">
 	<div class="container">
-		<div class="breadcrumb">
-		<ul>
-			<li><a href="{{asset('')}}">Trang chủ</a>
-			</li>
-			<li><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a>
-			</li>
-			<li class="active">{{$articles->name}}</li>
-		</ul>
-		</div>
+		
 	</div>
 
 	<div class="container" style="transform: none;">
 		<div class="row" style="transform: none;">
 			<div class="content col-lg-8">
 				<div id="blog" class="single-post">
+					<div class="breadcrumb">
+						<ul>
+							<li><a href="{{asset('')}}">Trang chủ</a>
+							</li>
+							<li><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a>
+							</li>
+							<li class="active">{{$articles->name}}</li>
+						</ul>
+					</div>
 					<div class="post-item">
 						<div class="post-item-wrap">
-							<!-- <div class="post-image">
-								<a href="#">
-									<img alt="" src="data/news/{{$articles->img}}">
-								</a>
-							</div> -->
 							<div class="post-item-description">
 								<h1>{{$articles->name}}</h1>
-
 								<div class="post-meta">
 									<span class="post-meta-date"><i class="fa fa-calendar-o"></i>{{date('d/m/Y',strtotime($articles->created_at))}}</span>
 									<span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33 Comments</a></span>

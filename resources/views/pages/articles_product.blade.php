@@ -9,8 +9,17 @@
 @section('content')
 
 @include('layout.header_page')
-
 <section id="page-content" class="sidebar-right">
+<div class="container">
+	<div class="breadcrumb">
+		<ul>
+			<li><a href="{{asset('')}}">Trang chủ</a></li>
+			<li><a href="{{$articles->category->slug}}">{{$articles->category->name}}</a></li>
+			<li class="active">{{$articles->name}}</li>
+		</ul>
+	</div>
+</div>
+
 <div class="container">
 <div class="row">
 
@@ -43,7 +52,7 @@
 <i class="fa fa-star"></i>
 <i class="fa fa-star-half-o"></i>
 </div>
-<div class="product-reviews"><a href="#">{{rand(10,30)}} customer reviews</a></div>
+<div class="product-reviews"><a href="#">{{rand(10,30)}} Đánh giá</a></div>
 <div class="seperator m-b-5"></div>
 </div>
 <div class="row">
@@ -101,7 +110,6 @@
 <div class="tab-content" id="myTabContent3">
 <div class="tab-pane fade" id="home3" role="tabpanel" aria-labelledby="home-tab">
 <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. </p>
-<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
 </div>
 <div class="tab-pane fade active show" id="profile3" role="tabpanel" aria-labelledby="profile-tab">
 <table class="table table-striped table-bordered">
@@ -114,26 +122,7 @@
 <td>Color</td>
 <td>Pink &amp; White</td>
 </tr>
-<tr>
-<td>Waist</td>
-<td>26 cm</td>
-</tr>
-<tr>
-<td>Length</td>
-<td>40 cm</td>
-</tr>
-<tr>
-<td>Chest</td>
-<td>33 inches</td>
-</tr>
-<tr>
-<td>Fabric</td>
-<td>Cotton, Silk &amp; Synthetic</td>
-</tr>
-<tr>
-<td>Warranty</td>
-<td>3 Months</td>
-</tr>
+
 </tbody>
 </table>
 </div>
@@ -163,46 +152,6 @@ Reviews <span>(3)</span>
 </div>
 </div>
 
-
-<div class="comment" id="comment-1-1">
-<div class="image"><img alt="" src="images/blog/author2.jpg" class="avatar"></div>
-<div class="text">
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-<h5 class="name">John Doe</h5>
-<span class="comment_date">Posted at 15:32h, 06 December</span>
-<a class="comment-reply-link" href="#">Reply</a>
-<div class="text_holder">
-<p>It is a long established fact that a reader will be distracted by the readable content.</p>
-</div>
-</div>
-</div>
-
-
-<div class="comment" id="comment-1-2">
-<div class="image"><img alt="" src="images/blog/author3.jpg" class="avatar"></div>
-<div class="text">
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-<h5 class="name">John Doe</h5>
-<span class="comment_date">Posted at 15:32h, 06 December</span>
-<a class="comment-reply-link" href="#">Reply</a>
-<div class="text_holder">
-<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-</div>
-</div>
-</div>
-
 </div>
 </div>
 </div>
@@ -211,9 +160,10 @@ Reviews <span>(3)</span>
 
 </div>
 <div class="heading-text heading-line text-center">
-<h4>Related Products you may be interested!</h4>
+<h4>Sản phẩm cùng loại!</h4>
 </div>
 <div class="row">
+
 <div class="col-lg-4">
 <div class="widget-shop">
 <div class="product">
@@ -237,184 +187,9 @@ Reviews <span>(3)</span>
 </div>
 </div>
 </div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/6.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Consume Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
 </div>
 </div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/7.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Man</div>
-<div class="product-title">
-<h3><a href="#">Logo Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4">
-<div class="widget-shop">
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/11.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Man</div>
-<div class="product-title">
-<h3><a href="#">Logo Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/9.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Consume Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
- <div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/3.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Man</div>
-<div class="product-title">
-<h3><a href="#">Logo Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4">
-<div class="widget-shop">
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/1.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Bolt Sweatshirt</a></h3>
-</div>
-<div class="product-price"><del>$30.00</del><ins>$15.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/2.jpg" alt="Shop product image!">
-</a>
-</div>
- <div class="product-description">
-<div class="product-category">Women</div>
-<div class="product-title">
-<h3><a href="#">Consume Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-<div class="product">
-<div class="product-image">
-<a href="#"><img src="images/shop/products/5.jpg" alt="Shop product image!">
-</a>
-</div>
-<div class="product-description">
-<div class="product-category">Man</div>
-<div class="product-title">
-<h3><a href="#">Logo Tshirt</a></h3>
-</div>
-<div class="product-price"><ins>$39.00</ins>
-</div>
-<div class="product-rate">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-half-o"></i>
-</div>
-</div>
-</div>
-</div>
-</div>
+
 </div>
 </div>
 

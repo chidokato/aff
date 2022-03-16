@@ -11,14 +11,14 @@
 @include('layout.header_page')
 <section id="page-content">
 	<div class="container">
+		<div class="breadcrumb">
+			<ul>
+				<li><a href="{{asset('')}}">Trang chủ</a></li>
+				<li class="active">{{$category->name}}</li>
+			</ul>
+		</div>
 		<div class="page-title">
-			<h1>{{$category->name}}</h1>
-			<div class="breadcrumb float-left">
-				<ul>
-					<li><a href="{{asset('')}}">Trang chủ</a></li>
-					<li class="active">{{$category->name}}</li>
-				</ul>
-			</div>
+			<h1 class="m-b-20">{{$category->name}}</h1>
 		</div>
 
 		<div id="blog" class="grid-layout post-3-columns m-b-30 grid-loaded" data-item="post-item" style="margin: 0px -20px -20px 0px; position: relative; height: 536.203px;">
@@ -41,7 +41,6 @@
 			</div>
 		</div>
 		@endforeach
-		<div class="grid-loader"></div>
 		</div>
 	</div>
 </section>

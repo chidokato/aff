@@ -99,7 +99,7 @@
 
     setTimeout(function() {
 	    $('#hidden').fadeOut('fast');
-	}, 1000); // <-- time in milliseconds
+	}, 3000); // <-- time in milliseconds
 </script>
 
 @endsection

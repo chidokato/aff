@@ -1,5 +1,5 @@
 <div class="widget clearfix widget-archive">
-<h4 class="widget-title">Product categories</h4>
+<h4 class="widget-title">Danh mục sản phẩm</h4>
 <ul class="list list-lines">
 <li><a href="#">Bags</a> <span class="count">(6)</span>
 </li>

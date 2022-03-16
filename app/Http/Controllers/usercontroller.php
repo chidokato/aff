@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -229,15 +228,21 @@ class usercontroller extends Controller
     public function resetacconut(Request $Request){
         $mail = $Request->email;
         $user = user::where('email',$mail)->first();
-        $user->password = bcrypt('123456');
-        $user->save();
+        if (isset($user)) {
+            $user->password = bcrypt('123456');
+            $user->save();
 
-        Mail::send('resetacconut', array('name'=>$user['name']), function($message) use ($mail){
-            $message->from($mail, 'STTD');
-            $message->to($mail, 'STTD')->subject('Khôi phục tài khoản');
-        });
+            Mail::send('resetacconut', array('name'=>$user['name']), function($message) use ($mail){
+                $message->from($mail, 'STTD');
+                $message->to($mail, 'STTD')->subject('Khôi phục tài khoản');
+            });
+            return redirect('signin')->with('Success','Check email để nhận tk và mk mới !');
+        }else{
+            return redirect()->back()->with('Success','Email không tồn tại !');
+        }
+        
 
-        return redirect('signin');
+        
     }
     
 }
