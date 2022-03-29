@@ -61,7 +61,7 @@
             </div>
         </div>
     </li> -->
-    <!-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
@@ -76,7 +76,7 @@
                 <a class="collapse-item" href="admin/street/list">Street</a>
             </div>
         </div>
-    </li> -->
+    </li>
     <li class="nav-item">
         <a class="nav-link" href="admin/user/list"><i class="fas fa-fw fa-chart-area"></i><span>Người dùng</span></a>
     </li>

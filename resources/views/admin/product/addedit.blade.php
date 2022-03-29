@@ -45,7 +45,7 @@ if(isset($data)){
                         </div>
                     </div>
                     
-                    <!-- <div class="col-md-2">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label style="display: flex;">Tỉnh thành</label> 
                             <select name="province_id" class="form-control select2" id="province">
@@ -100,49 +100,65 @@ if(isset($data)){
                             <label style="display: flex;">Địa chỉ</label> 
                             <input value="{{ isset($data) ? $data->address : '' }}{{old('address')}}" name="address" placeholder="..." type="text" class="form-control">
                         </div>
-                    </div> -->
+                    </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Mô tả ngắn</label>
                             <textarea rows="3" name="detail" class="form-control">{{ isset($data) ? $data->detail : '' }}</textarea>
                         </div>
                     </div>
-
-                    <div class="col-md-12">
-                        <!-- <div class="tab">
+                    <!-- <div class="col-md-12">
+                        <div class="tab">
                             <button type="button" class="tablinks active" onclick="openCity(event, 'London')">Thông số kỹ thuật</button>
                             <button type="button" class="tablinks" onclick="openCity(event, 'Paris')">Nội dung chi tết</button>
-                        </div> -->
-                        <!-- <div id="London" class="tabcontent" style="display: block;">
+                        </div>
+                        <div id="London" class="tabcontent" style="display: block;">
                             <textarea name="content" class="form-control ckeditor">{{ isset($data) ? $data->content : '' }}{{old('content')}}</textarea>
-                        </div> -->
-                        <!-- <div id="Paris" class="tabcontent">
+                        </div>
+                        <div id="Paris" class="tabcontent">
                             <textarea name="detail" class="form-control ckeditor1" id="ckeditor1">{{ isset($data) ? $data->detail : '' }}{{old('detail')}}</textarea>
-                        </div> -->
-                        
-                    </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
         <div class="card shadow mb-2">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Thông tin</h6>
+            </div>
             <div class="card-body">
-                <!-- <div class="row mb-3">
-                    <div class="col-md-3" style="display: flex;">
-                        <input style="width: 20%; text-align: center; border-radius: 5px 0px 0px 5px" value="{{ isset($data) ? $data->name : '' }}{{old('name')}}" name="name_tab" placeholder="..." type="text" class="form-control">
-                        <input style="border-radius: 0px 5px 5px 5px" value="{{ isset($data) ? $data->name : '' }}{{old('name')}}" name="name_tab" placeholder="Tab" type="text" class="form-control">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Tab</label>
                     </div>
-                    <div class="col-md-9">
-                        <input value="{{ isset($data) ? $data->name : '' }}{{old('name')}}" name="tit_tab" placeholder="Tiêu đề" type="text" class="form-control">
+                    <div class="col-md-7">
+                        <label>Tiêu đề</label>
                     </div>
-                </div> -->
-                <textarea name="content" class="form-control ckeditor">{{ isset($data) ? $data->content : "" }}{{old("content")}}</textarea>
+                    <div class="col-md-2"></div>
+                </div>
+                <br>
+                <div class="row" id="load_html_section">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <input class="form-control input_section" type="text" value="Tổng quan" name="">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <input class="form-control input_section" type="text" value="Tổng quan dự án vinhomes smart city" name="">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button id="edit_section" type="button" class="button_section mr-2" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit" aria-hidden="true"></i></button>
+                        <button id="del_section" type="button" class="button_section" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-file-alt"></i> Thêm</button>
             </div>
         </div>
 
-        <!-- <div class="text-right mb-3">
-            <button id="add_data" type="button" class="btn-success"><i class="far fa-save"></i> Save</button>
-        </div> -->
+
 
         @include('admin.layout.seooption')
     </div>
@@ -264,8 +280,92 @@ if(isset($data)){
 </div>
 </form>
 
+
+
+<!-- Modal -->
+
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<form id="add_section">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<input type="hidden" name="_token" value="{{csrf_token()}}" />
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content" id="data_add_section">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Thêm</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<div class="row" >
+<div class="col-md-4">
+<div class="form-group">
+<label>Tab</label>
+<input name="tab_section" type="text" class="form-control" name="">
+</div>
+</div>
+<div class="col-md-8">
+<div class="form-group">
+<label>Tiêu đề</label>
+<input id="heading" type="text" class="form-control" name="">
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<label>Content</label>
+<textarea name="content_section" class="form-control ckeditor" id="ckeditor"></textarea>
+</div>
+</div>
+<div class="col-md-8">
+<div class="form-group">
+<label>Hình ảnh</label>
+<input multiple type="file" class="form-control" name="">
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Cách hiển thị</label>
+<select class="form-control">
+<option>adasd</option>
+<option>adasd</option>
+<option>adasd</option>
+</select>
+</div>
+</div>
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button id="save_section" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+
+
+
+
 <style type="text/css">
-    .cke_contents{height: 350px !important;}
+    /*.cke_contents{height: 350px !important;}*/
+    /* The Modal (background) */
+    .button_section{
+        background: none; border: 2px solid #fff; border-radius: 5px;
+    }
+    .button_section:hover{
+        border: 2px solid #ddd; border-radius: 5px;
+    }
+    .input_section{
+        border: none;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        border-radius: 0px;
+        padding-left: 0px;
+    }
+    .input_section:focus{
+        box-shadow: none;
+    }
 </style>
 
 <script>
@@ -283,6 +383,7 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
+
 @endsection
 
 @section('function')

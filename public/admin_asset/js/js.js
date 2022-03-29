@@ -8,6 +8,16 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+    $('#changepassword').change(function(){
+        if ($(this).is(":checked")) {
+            $(".pass").removeAttr('disabled');
+        }else{
+            $(".pass").attr('disabled','');
+        }
+    });
+});
+
 function dell() {alert("Bạn có chắc muốn xóa bản ghi!");}
 
 function goBack() { window.history.back(); } // back history
@@ -265,6 +275,32 @@ $(document).ready(function(){
         });
     });
 }); // update status 
+
+// section
+$(document).ready(function(){
+    $("button#save_section").click(function(event){
+        event.preventDefault();
+
+        let tab_section = $("input[name=tab_section]").val();
+        let content_section = $('textarea[name="content_section"]').val();
+        
+
+        alert(content_section);
+        $.ajax({
+            url: 'admin/product/add_section',
+            type: 'POST',
+            cache: false,
+            data: {
+                // "tab":tab
+            },
+            success: function(data){
+                $('#load_html_section').html(data);
+            }
+        });
+    });
+}); // lưu section trong thêm sản phẩm
+
+// section
 // end sản phẩm
 
 

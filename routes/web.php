@@ -59,6 +59,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('delete/{id}','c_product@getdelete');
 		Route::post('delete_all','c_product@delete_all');
 		Route::post('search','c_product@search');
+
+		Route::post('add_section', 'c_product@add_section');
 	});
 	Route::group(['prefix'=>'news'],function(){
 		Route::get('list','c_news@getlist')->middleware('can:superadmin');

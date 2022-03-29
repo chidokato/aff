@@ -59,5 +59,10 @@
 <script src="frontend/validate/valildate-rules.js"></script>
 @yield('script')
 <script src="frontend/toc.js"></script>
+
+
+
+
+
 </body>
 </html>

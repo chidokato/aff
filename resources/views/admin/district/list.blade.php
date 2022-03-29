@@ -4,20 +4,29 @@
 @include('admin.errors.alerts')
 <div class="d-sm-flex align-items-center justify-content-between mb-3">
     <!-- <h1 class="h3 mb-0 text-gray-800">List Category</h1> -->
-    <form style="display: flex;" action="admin/district/loc" method="post">
-        <input type="hidden" name="_token" value="{{csrf_token()}}" />
-        <select style="width: 100px;" class="form-control mr-3" name="paginate">
-            <option <?php if(isset($paginate) && $paginate=='50'){echo "selected";} ?> value="50">50</option>
-            <option <?php if(isset($paginate) && $paginate=='100'){echo "selected";} ?> value="100">100</option>
-            <option <?php if(isset($paginate) && $paginate=='200'){echo "selected";} ?> value="200">200</option>
-        </select>
+    <form style="display: flex;" action="admin/district/loc" method="post"><input type="hidden" name="_token" value="{{csrf_token()}}" />
         <div class="input-group">
-            <input value="{{ isset($key) ? $key : '' }}" name="name" type="text" class="form-control bg-light small" placeholder="Search for...">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">
-                    <i class="fas fa-search fa-sm"></i>
-                </button>
-            </div>
+            <input value="{{ isset($key) ? $key : '' }}" name="key" type="text" class="form-control mr-3" placeholder="Name...">
+        </div>
+        <!-- <input type="text" class="form-control mr-3" name="datefilter" value="{{ isset($datefilter) ? $datefilter : '' }}" placeholder='Created at ...' /> -->
+        <div class="input-group">
+            <select style="" class="form-control select2" name="province_id" >
+                @foreach($province as $val)
+                <option <?php if(isset($province_id) && $province_id==$val->id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="">
+            <select style="width: 100px;" class="form-control mr-3 ml-3" name="paginate">
+                <option <?php if(isset($paginate) && $paginate=='50'){echo "selected";} ?> value="50">50</option>
+                <option <?php if(isset($paginate) && $paginate=='100'){echo "selected";} ?> value="100">100</option>
+                <option <?php if(isset($paginate) && $paginate=='200'){echo "selected";} ?> value="200">200</option>
+            </select>
+        </div>
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
         </div>
     </form>
     <!-- <a href="admin/category/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="far fa-file"></i> Add</a> -->
@@ -26,7 +35,7 @@
     <div class="col-xl-12 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                <h6 class="m-0 font-weight-bold text-primary">District ({{ $count }} iteam)</h6>
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>

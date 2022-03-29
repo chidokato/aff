@@ -71,51 +71,35 @@
     <script src="admin_asset/js/pages/crud/file-upload/image-inpute3c3.js?v=7.2.5"></script>
     <script src="ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
-        CKEDITOR.replace('ckeditor' ,{
+        CKEDITOR.replace ('ckeditor' ,{
             filebrowserBrowseUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
             filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
             filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='
-        });
-        CKEDITOR.replace('ckeditor1' ,{
-            filebrowserBrowseUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-            filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-            filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='
-        });
-    </script>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#changepassword').change(function(){
-                if ($(this).is(":checked")) {
-                    $(".pass").removeAttr('disabled');
-                }
-                else
-                {
-                    $(".pass").attr('disabled','');
-                }
-            });
         });
     </script>
     
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
     <!-- date -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    
     <script type="text/javascript">
     $(function() {
-      $('input[name="datefilter"]').daterangepicker({
+        $('input[name="datefilter"]').daterangepicker({
           autoUpdateInput: false,
           locale: {
               cancelLabel: 'Clear'
           }
-      });
-      $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+        });
+        $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
           $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-      });
-      $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+        });
+        $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
           $(this).val('');
-      });
+        });
     });
     </script>
 
@@ -124,6 +108,7 @@
     <script type="text/javascript">
         $(document).ready(function() { $('.select2').select2({ placeholder: '...' }); });
     </script>
+
     <!-- zoom ảnh -->
     <script src="admin_asset/zoom/zoom.js"></script>
     <script src="admin_asset/js/js.js"></script>

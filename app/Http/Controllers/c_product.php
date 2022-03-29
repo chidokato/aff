@@ -93,10 +93,10 @@ class c_product extends Controller
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
-        $product->province_id = $Request->province_id;
-        $product->district_id = $Request->district_id;
-        $product->ward_id = $Request->ward_id;
-        $product->street_id = $Request->street_id;
+        if(isset($Request->province_id)){$product->province_id = $Request->province_id;}
+        if(isset($Request->district_id)){$product->district_id = $Request->district_id;}
+        if($Request->ward_id)$product->ward_id = $Request->ward_id;
+        if($Request->street_id)$product->street_id = $Request->street_id;
         if(isset($Request->mausac)){$product->mausac_id = implode(',', $Request->mausac);}
         $product->save();
         // seo

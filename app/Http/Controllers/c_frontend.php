@@ -118,7 +118,7 @@ class c_frontend extends Controller
             ->take(8)
             ->get();
         if ($articles['sort_by'] == 1) {
-            return view('pages.articles_product',['articles'=>$articles,'lienquan'=>$lienquan]);
+            return view('pages.articles_product_bds',['articles'=>$articles,'lienquan'=>$lienquan]);
         }
         if ($articles['sort_by'] == 2) {
             return view('pages.articles',['articles'=>$articles,'lienquan'=>$lienquan]);

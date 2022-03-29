@@ -11,17 +11,9 @@ class c_province extends Controller
 {
     public function getlist()
     {
-        $count = province::get();
-        $province = province::orderBy('id','desc')->paginate(50);
+        $province = province::orderBy('status','desc')->paginate(50);
         $count = province::orderBy('id','desc')->count();
-        // $province = province::orderBy('id','desc')->get();
-        // foreach ($province as $key => $value) {
-        // 	$province = province::find($value->id);
-        // 	$province->user_id = '1';
-        // 	$province->save();
-        // }
     	return view('admin.province.list',[
-            'count'=>$count,
             'province'=>$province,
             'count'=>$count,
         ]);
@@ -30,7 +22,7 @@ class c_province extends Controller
     public function loc(Request $Request)
     {
 
-        $province = province::orderBy('id','desc')->where('id','!=' , 0);
+        $province = province::orderBy('status','desc')->where('id','!=' , 0);
         if($Request->key){
             $province->where('name','like',"%$Request->key%");
         }

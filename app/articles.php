@@ -31,4 +31,8 @@ class articles extends Model
     {
         return $this->hasMany('App\quanlykho','articles_id','id');
     }
+    public function section()
+    {
+        return $this->hasMany('App\section','articles_id','id');
+    }
 }

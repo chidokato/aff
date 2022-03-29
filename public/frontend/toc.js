@@ -98,7 +98,7 @@ function TableOfContents(container, output) {
 
 
 $(window).scroll(function() {
-    var scrollDistance = $(window).scrollTop() + 10;
+    var scrollDistance = $(window).scrollTop() + 20;
     $('h2,h3').each(function(i) {
         if ($(this).position().top <= scrollDistance) {
             $('#toc ul ul li a.active').removeClass('active');
@@ -110,6 +110,6 @@ $(window).scroll(function() {
 // $(document).on('click', 'a[href^="#"]', function (event) {
 //     event.preventDefault();
 //     $('html, body').animate({
-//         scrollTop: $($.attr(this, 'href')).offset().top - 80 //Add this
+//         scrollTop: $($.attr(this, 'href')).offset().top - 100 //Add this
 //     }, 0);
 // });

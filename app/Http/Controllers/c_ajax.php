@@ -154,7 +154,7 @@ class c_ajax extends Controller
             $articles->save();
         }
     }
-    // product
+    // end articles
 
     // themes
     public function update_status_themes($id)

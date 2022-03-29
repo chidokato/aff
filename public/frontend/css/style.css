@@ -123,6 +123,15 @@ button:focus {
 .product .product-price {
     width: auto;}
 
+.content_product h2{
+	font-size: 1.8rem;
+}
+.content_product ul{
+	padding-left: 20px;
+}
+.content_product ul li{
+	font-size: 1.1rem;
+}
 
 
 @media (max-width: 1024px){
