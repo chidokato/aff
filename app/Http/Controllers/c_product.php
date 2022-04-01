@@ -7,6 +7,7 @@ use Image;
 use File;
 use App\seo;
 use App\product;
+use App\section;
 use App\mausac;
 use App\form;
 use App\size;
@@ -230,6 +231,7 @@ class c_product extends Controller
             // thêm ảnh mới
         }
         $articles->save();
+
         // seo
         $seo = seo::find($articles['seo_id']);
         $seo->title = $Request->title;
@@ -237,18 +239,19 @@ class c_product extends Controller
         $seo->keywords = $Request->keywords;
         $seo->robot = $Request->robot;
         $seo->save();
+
         // product
         $product = product::find($articles['product_id']);
         $product->price = str_replace( array(',') , '', $Request->price );
         $product->oldprice = str_replace( array(',') , '', $Request->oldprice );
         $product->saleoff = str_replace( array(',') , '', $Request->saleoff );
         $product->number = $Request->number;
-        if($Request->province_id)$product->province_id = $Request->province_id;
+        if($Request->province_id){$product->province_id = $Request->province_id;}
         if($Request->district_id)$product->district_id = $Request->district_id;
         if($Request->ward_id)$product->ward_id = $Request->ward_id;
         if($Request->street_id)$product->street_id = $Request->street_id;
-        if(isset($Request->mausac)){$product->mausac_id = implode(',', $Request->mausac);}
-        else{$product->mausac_id='';}
+        if($Request->address)$product->address = $Request->address;
+        if(isset($Request->mausac)){$product->mausac_id = implode(',', $Request->mausac);}else{$product->mausac_id='';}
         $product->save();
 
         // thêm ảnh chi tiết
@@ -333,5 +336,23 @@ class c_product extends Controller
             }
         }
         return redirect('admin/product/list')->with('Success','Success');
+    }
+
+
+    // section
+    public function add_section(Request $Request)
+    {
+        $section = new section;
+        $section->articles_id = $Request->articles_id;
+        $section->number = $Request->number;
+        $section->tab_heading = $Request->tab_section;
+        $section->heading = $Request->heading;
+        $section->content = $Request->content;
+        $section->save();
+
+        $section_list = section::where('articles_id', $Request->articles_id)->orderBy('number','asc')->get();
+        return view('admin.product.section', [
+            'section_list'=>$section_list,
+        ]);
     }
 }

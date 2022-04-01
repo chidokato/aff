@@ -10,6 +10,7 @@ use App\menu;
 use App\articles;
 use App\mausac;
 use App\product;
+use App\section;
 use App\quanlykho;
 use App\images;
 use App\customer;
@@ -155,6 +156,16 @@ class c_ajax extends Controller
         }
     }
     // end articles
+    
+    // section
+    public function del_section($id)
+    {
+        if(Request::ajax()){
+            $section = section::find($id);
+            $section->delete();
+        }
+    }
+    // end section
 
     // themes
     public function update_status_themes($id)

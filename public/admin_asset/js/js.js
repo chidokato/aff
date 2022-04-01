@@ -136,7 +136,25 @@ $(document).ready(function(){
     });
 }); // update home
 
-// category
+// end category
+
+// news
+$(document).ready(function() {
+    $('form.editform').submit(function(event) {
+        $.ajax({
+            method: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(datas){
+                // $('#loadchat').html(datas);
+                alert('Thành công');
+            }
+        }).done(function(response) {});
+        
+        event.preventDefault(); // <- avoid reloading
+   });
+});
+// end news
 
 // nhập hang
 $(document).ready(function(){
@@ -277,29 +295,33 @@ $(document).ready(function(){
 }); // update status 
 
 // section
-$(document).ready(function(){
-    $("button#save_section").click(function(event){
-        event.preventDefault();
-
-        let tab_section = $("input[name=tab_section]").val();
-        let content_section = $('textarea[name="content_section"]').val();
-        
-
-        alert(content_section);
+$(document).ready(function() {
+    $('form#add_section').submit(function(event) {
         $.ajax({
-            url: 'admin/product/add_section',
-            type: 'POST',
-            cache: false,
-            data: {
-                // "tab":tab
-            },
-            success: function(data){
-                $('#load_html_section').html(data);
+            method: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function(datas){
+                $('#load_html_section').html(datas);
             }
+        }).done(function(response) {
+            // alert('thành công');
         });
+        event.preventDefault(); // <- avoid reloading
     });
-}); // lưu section trong thêm sản phẩm
 
+    $('button#del_section').on('click', function(){
+        var id = $(this).parents('#section_list').find('input[id="section_id"]').val();
+        // alert(section_id);
+        $.ajax({
+            url:  'admin/ajax/del_section/'+id, type: 'GET', cache: false, data: {"id":id},
+        });
+        $(this).closest(".row").remove();
+    });
+
+
+
+}); // lưu section trong thêm sản phẩm
 // section
 // end sản phẩm
 
@@ -460,3 +482,6 @@ function formatCurrency(input, blur) {
 }
 
 
+
+
+// end news

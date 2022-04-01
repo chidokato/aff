@@ -2,6 +2,9 @@
 @section('product') menu-item-active @endsection
 @section('content')
 @include('admin.errors.alerts')
+
+<?php use App\section; ?>
+
 <form id="validateForm" action="admin/product/<?php
 if(isset($data)){
     if(isset($double)) echo 'add';
@@ -51,7 +54,7 @@ if(isset($data)){
                             <select name="province_id" class="form-control select2" id="province">
                                 <option value="">...</option>
                                 @foreach($province as $val)
-                                <option <?php //if(isset($data) && $val->id==$data->product->province_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
+                                <option <?php if(isset($data) && $val->id==$data->product->province_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -63,7 +66,7 @@ if(isset($data)){
                                 <option value="">...</option>
                                 @if(isset($data))
                                 @foreach($district as $val)
-                                <option <?php //if(isset($data) && $val->id==$data->product->district_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
+                                <option <?php if(isset($data) && $val->id==$data->product->district_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
                                 @endforeach
                                 @endif
                             </select>
@@ -76,7 +79,7 @@ if(isset($data)){
                                 <option value="">...</option>
                                 @if(isset($data))
                                 @foreach($ward as $val)
-                                <option <?php //if(isset($data) && $val->id==$data->product->ward_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
+                                <option <?php if(isset($data) && $val->id==$data->product->ward_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
                                 @endforeach
                                 @endif
                             </select>
@@ -89,7 +92,7 @@ if(isset($data)){
                                 <option value="">...</option>
                                 @if(isset($data))
                                 @foreach($street as $val)
-                                <option <?php //if(isset($data) && $val->id==$data->product->street_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
+                                <option <?php if(isset($data) && $val->id==$data->product->street_id){echo "selected";} ?> value="{{$val->id}}">{{$val->name}}</option>
                                 @endforeach
                                 @endif
                             </select>
@@ -98,7 +101,7 @@ if(isset($data)){
                     <div class="col-md-4">
                         <div class="form-group">
                             <label style="display: flex;">Địa chỉ</label> 
-                            <input value="{{ isset($data) ? $data->address : '' }}{{old('address')}}" name="address" placeholder="..." type="text" class="form-control">
+                            <input value="{{ isset($data) ? $data->product->address : '' }}{{old('address')}}" name="address" placeholder="..." type="text" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -123,42 +126,20 @@ if(isset($data)){
             </div>
         </div>
 
+        @if(isset($data))
+        <?php $section_list = section::where('articles_id', $data->id)->orderBy('number','asc')->get(); ?>
         <div class="card shadow mb-2">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Thông tin</h6>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <label>Tab</label>
-                    </div>
-                    <div class="col-md-7">
-                        <label>Tiêu đề</label>
-                    </div>
-                    <div class="col-md-2"></div>
-                </div>
-                <br>
-                <div class="row" id="load_html_section">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <input class="form-control input_section" type="text" value="Tổng quan" name="">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="form-group">
-                            <input class="form-control input_section" type="text" value="Tổng quan dự án vinhomes smart city" name="">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button id="edit_section" type="button" class="button_section mr-2" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit" aria-hidden="true"></i></button>
-                        <button id="del_section" type="button" class="button_section" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></button>
-                    </div>
+                <div id="load_html_section">
+                    @include('admin.product.section')
                 </div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-file-alt"></i> Thêm</button>
             </div>
         </div>
-
-
+        @endif
 
         @include('admin.layout.seooption')
     </div>
@@ -280,14 +261,10 @@ if(isset($data)){
 </div>
 </form>
 
-
-
-<!-- Modal -->
-
 <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<form id="add_section">
-<meta name="csrf-token" content="{{ csrf_token() }}" />
+<form id="add_section" action="admin/product/add_section" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="_token" value="{{csrf_token()}}" />
+<input type="hidden" name="articles_id" value="{{ isset($data) ? $data->id : '' }}" />
 <div class="modal-dialog modal-lg" role="document">
 <div class="modal-content" id="data_add_section">
 <div class="modal-header">
@@ -298,28 +275,34 @@ if(isset($data)){
 </div>
 <div class="modal-body">
 <div class="row" >
-<div class="col-md-4">
+<div class="col-md-1">
+<div class="form-group">
+<label>Stt</label>
+<input name="number" type="text" class="form-control" >
+</div>
+</div>
+<div class="col-md-3">
 <div class="form-group">
 <label>Tab</label>
-<input name="tab_section" type="text" class="form-control" name="">
+<input name="tab_section" type="text" class="form-control" >
 </div>
 </div>
 <div class="col-md-8">
 <div class="form-group">
 <label>Tiêu đề</label>
-<input id="heading" type="text" class="form-control" name="">
+<input name="heading" type="text" class="form-control" >
 </div>
 </div>
 <div class="col-md-12">
 <div class="form-group">
 <label>Content</label>
-<textarea name="content_section" class="form-control ckeditor" id="ckeditor"></textarea>
+<textarea name="content" class="form-control ckeditor" id="ckeditor"></textarea>
 </div>
 </div>
 <div class="col-md-8">
 <div class="form-group">
 <label>Hình ảnh</label>
-<input multiple type="file" class="form-control" name="">
+<input name="img[]" multiple type="file" class="form-control">
 </div>
 </div>
 <div class="col-md-4">
@@ -333,19 +316,15 @@ if(isset($data)){
 </div>
 </div>
 </div>
-
 </div>
 <div class="modal-footer">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button id="save_section" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+<button id="save_section" type="submit" class="btn btn-primary">Save</button>
 </div>
 </div>
 </div>
 </form>
 </div>
-
-
-
 
 <style type="text/css">
     /*.cke_contents{height: 350px !important;}*/

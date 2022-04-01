@@ -202,6 +202,9 @@ Route::group(['prefix'=>'admin','middleware'=>'adminlogin'],function(){
 		Route::get('change_province/{id}','c_ajax@change_province');
 		Route::get('change_district/{id}','c_ajax@change_district');
 		Route::get('change_district_street/{id}','c_ajax@change_district_street');
+
+		// product
+		Route::get('del_section/{id}','c_ajax@del_section');
 	});
 });
 
