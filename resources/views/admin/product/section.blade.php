@@ -1,22 +1,16 @@
-@foreach($section_list as $val)
-<div class="row" id="section_list">
-	<input type="hidden" id="section_id" name="section_id" value="{{ isset($data) ? $val->id : '' }}" />
-	<div class="col-md-3" style="display: flex;">
-	    <div class="form-group">
-	        <input class="form-control input_section" type="text" value="{{$val->number}}" name="">
-	    </div>
-	    <div class="form-group">
-	        <input class="form-control input_section" type="text" value="{{$val->tab_heading}}" name="">
-	    </div>
-	</div>
-	<div class="col-md-7">
-	    <div class="form-group">
-	        <input class="form-control input_section" type="text" value="{{$val->heading}}" name="">
-	    </div>
-	</div>
-	<div class="col-md-2">
-	    <button id="edit_section" type="button" class="button_section mr-2" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-edit" aria-hidden="true"></i></button>
-	    <button id="del_section" type="button" class="button_section" ><i class="fas fa-trash-alt"></i></button>
-	</div>
-</div>
-@endforeach
+
+
+<textarea class="form-control ckeditor" id="ckeditor"></textarea>
+
+
+<script type="text/javascript">
+	$('button#del_section').on('click', function(){
+        var id = $(this).parents('#section_list').find('input[id="section_id"]').val();
+        // alert(section_id);
+        $.ajax({
+            url:  'admin/ajax/del_section/'+id, type: 'GET', cache: false, data: {"id":id},
+        });
+        $(this).closest("#section_list").remove();
+    });
+</script>
+

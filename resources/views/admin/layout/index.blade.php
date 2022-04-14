@@ -20,6 +20,8 @@
     <!-- select2 multiple css -->
     <link href="admin_asset/select2/css/select2.min.css" rel="stylesheet">
 
+
+
 </head>
 
 <body id="page-top">
@@ -27,13 +29,14 @@
         @include('admin.layout.navbar')
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                @include('admin.layout.header')
+                
                 <div class="container-fluid">
                     @yield('content')
                 </div>
                 @include('admin.layout.footer')
             </div>
         </div>
+        
     </div>
     <!-- Footer -->
             
@@ -62,13 +65,6 @@
         </div>
     </div>
 
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- <script src="admin_asset/jquery/jquery.min.js"></script> -->
-    <script src="admin_asset/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="admin_asset/jquery-easing/jquery.easing.min.js"></script>
-    <script src="admin_asset/js/sb-admin-2.min.js"></script>
-    <script src="admin_asset/js/pages/crud/file-upload/image-inpute3c3.js?v=7.2.5"></script>
     <script src="ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace ('ckeditor' ,{
@@ -76,7 +72,24 @@
             filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
             filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='
         });
+        
+        @for ($i = 1; $i <= 10; $i++)
+            CKEDITOR.replace ('ckeditor{{$i}}' ,{
+                filebrowserBrowseUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+                filebrowserUploadUrl : 'filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+                filebrowserImageBrowseUrl : 'filemanager/dialog.php?type=1&editor=ckeditor&fldr='
+            });
+        @endfor
+        
     </script>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="admin_asset/jquery/jquery.min.js"></script> -->
+    <script src="admin_asset/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="admin_asset/jquery-easing/jquery.easing.min.js"></script>
+    <script src="admin_asset/js/sb-admin-2.min.js"></script>
+    <script src="admin_asset/js/pages/crud/file-upload/image-inpute3c3.js?v=7.2.5"></script>
+
     
     <script src="http://code.jquery.com/jquery-latest.js"></script>
 

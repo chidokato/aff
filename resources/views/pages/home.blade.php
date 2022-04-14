@@ -308,7 +308,8 @@ orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. </s
 <div class="post-item-wrap">
 <div class="post-image">
 	<a href="{{$val->category->slug}}/{{$val->slug}}">
-	<img alt="" src="data/news/{{$val->img}}">
+	<img data-src="data/news/{{$val->img}}" class="lazyload" >
+
 	</a>
 	<span class="post-meta-category"><a href="#">{{$val->category->name}}</a></span>
 </div>
@@ -336,33 +337,25 @@ Comments</a></span>
 <span class="lead">Những khách hàng tuyệt vời của chúng tôi, chúng tôi rất hân hạnh được làm việc cùng họ! </span>
  </div>
 <div class="carousel client-logos" data-items="6" data-items-sm="4" data-items-xs="3" data-items-xxs="2" data-margin="20" data-arrows="false" data-autoplay="true" data-autoplay="3000" data-loop="true">
-<div>
-<a href="#"><img alt="" src="images/clients/1.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/2.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/3.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/4.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/5.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/6.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/7.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/8.png"> </a>
-</div>
-<div>
-<a href="#"><img alt="" src="images/clients/9.png"> </a>
-</div>
+	<div>
+		<a href="#"><img data-src="images/clients/1.png" class="lazyload"> </a>
+	</div>
+	<div>
+		<a href="#"><img data-src="images/clients/2.png" class="lazyload"> </a>
+	</div>
+	<div>
+		<a href="#"><img data-src="images/clients/3.png" class="lazyload"> </a>
+	</div>
+	<div>
+		<a href="#"><img data-src="images/clients/4.png" class="lazyload"> </a>
+	</div>
+	<div>
+		<a href="#"><img data-src="images/clients/5.png" class="lazyload"> </a>
+	</div>
+	<div>
+		<a href="#"><img data-src="images/clients/6.png" class="lazyload"> </a>
+	</div>
+	
 </div>
 </div>
 </section>
@@ -380,7 +373,7 @@ Comments</a></span>
 <div class="col-lg-3">
 <div class="team-member">
 <div class="team-image">
-<img src="images/team/6.jpg">
+<img data-src="images/team/6.jpg" class="lazyload">
 </div>
 <div class="team-desc">
 <h3>Alea Smith</h3>
@@ -410,7 +403,7 @@ Comments</a></span>
 <div class="col-lg-3">
 <div class="team-member">
 <div class="team-image">
-<img src="images/team/7.jpg">
+<img data-src="images/team/7.jpg" class="lazyload">
 </div>
  <div class="team-desc">
 <h3>Ariol Doe</h3>
@@ -440,7 +433,7 @@ Comments</a></span>
 <div class="col-lg-3">
 <div class="team-member">
 <div class="team-image">
-<img src="images/team/8.jpg">
+<img data-src="images/team/8.jpg" class="lazyload">
 </div>
 <div class="team-desc">
 <h3>Emma Ross</h3>
@@ -470,7 +463,7 @@ Comments</a></span>
 <div class="col-lg-3">
 <div class="team-member">
 <div class="team-image">
-<img src="images/team/9.jpg">
+<img data-src="images/team/9.jpg" class="lazyload">
 </div>
 <div class="team-desc">
 <h3>Victor Loda</h3>

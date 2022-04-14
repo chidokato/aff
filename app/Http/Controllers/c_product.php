@@ -152,6 +152,15 @@ class c_product extends Controller
             }
         }
 
+        if ($Request->name_section) {
+            foreach($Request->name_section as $val){
+                $section = new section;
+                $section->articles_id = $articles->id;
+                $section->tab_heading = $val;
+                $section->save();
+            }
+        }
+
         return redirect('admin/product/list')->with('Alerts','Thành công');
     }
 
@@ -269,7 +278,36 @@ class c_product extends Controller
                 }
             }
         }
-        return redirect('admin/product/list')->with('Success','Thành công');
+        // return redirect('admin/product/list')->with('Success','Thành công');
+
+        if ($Request->name_section) {
+            foreach($Request->name_section as $val){
+                if ($val != '') {
+                    $section = new section;
+                    $section->articles_id = $articles->id;
+                    $section->tab_heading = $val;
+                    $section->save();
+                }
+            }
+        }
+
+        if ($Request->id_section) {
+            foreach($Request->id_section as $key => $id_section){
+                $section = section::find($id_section);
+                $section->tab_heading = $Request->tab_heading[$key];
+                $section->heading = $Request->heading[$key];
+                $section->content = $Request->content_section[$key];
+                $section->save();
+
+                $file = $Request->file('img')[$key];
+                $filename = $file->getClientOriginalName();
+                while(file_exists("data/product/300/".$filename)){ $filename = str_random(4)."_".$filename; }
+                $img = Image::make($file)->resize(1000, 800, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/'.$filename));
+                $img = Image::make($file)->resize(300, 300, function ($constraint) {$constraint->aspectRatio();})->save(public_path('data/product/300/'.$filename));
+                $articles->img = $filename;
+            }
+        }
+
         // return redirect()->back()->with('Success','Thành công');
     }
 

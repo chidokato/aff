@@ -60,7 +60,7 @@
 @yield('script')
 <script src="frontend/toc.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" async=""></script>
 
 
 

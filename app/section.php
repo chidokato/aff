@@ -11,4 +11,8 @@ class section extends Model
 	{
 		return $this->belongsTo('App\articles','articles_id','id');
 	}
+	public function images()
+    {
+        return $this->hasMany('App\images','section_id','id');
+    }
 }

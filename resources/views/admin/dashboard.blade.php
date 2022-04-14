@@ -1,6 +1,7 @@
 @extends('admin.layout.index')
 @section('dashboard') menu-item-active @endsection
 @section('content')
+@include('admin.layout.header')
 <?php use App\quanlykho; ?>
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-3">

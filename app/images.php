@@ -12,4 +12,8 @@ class images extends Model
 	{
 		return $this->belongsTo('App\articles','articles_id','id');
 	}
+	public function section()
+	{
+		return $this->belongsTo('App\section','section_id','id');
+	}
 }

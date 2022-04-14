@@ -4,83 +4,84 @@
 @include('admin.errors.alerts')
 <form id="validateForm" action="admin/category/{{ isset($data) ? 'edit/'.$data->id : 'add' }}" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-<div class="text-right mb-3">
-    <button type="reset" class="btn-warning mr-2"><i class="fas fa-arrow-left"></i> Back</button>
-    <button type="reset" class="btn-danger mr-2"><i class="fas fa-sync"></i> Reset</button>
-    <button type="submit" class="btn-success"><i class="far fa-save"></i> Save</button>
-</div>
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow sticky">
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
+    <ul class="navbar-nav ">
+        <li class="nav-item"> <a class="nav-link line-1" onclick="goBack()" ><i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="mobile-hide">Quay lại trang danh sách danh mục</span> </a> </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item mobile-hide">
+            <button type="reset" class="btn-danger mr-2 form-control"><i class="fas fa-sync"></i> Làm mới</button>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <li class="nav-item">
+            <button type="submit" class="btn-success form-control"><i class="far fa-save"></i> Lưu lại</button>
+        </li>
+    </ul>
+</nav>
 <div class="row">
     <div class="col-xl-9 col-lg-9">
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-2">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Information</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Thông tin</h6>
                 <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Dropdown Header:</div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input value="{{ isset($data) ? $data->name : '' }}" name="name" placeholder="Tên danh mục" type="text" class="form-control">
-                            </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input value="{{ isset($data) ? $data->name : '' }}" name="name" placeholder="Tên danh mục" type="text" class="form-control">
                         </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label>View</label>
-                                <input value="{{ isset($data) ? $data->view : '' }}" name="view" placeholder="View" type="text" class="form-control">
-                            </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>View</label>
+                            <input value="{{ isset($data) ? $data->view : '' }}" name="view" placeholder="View" type="text" class="form-control">
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Icon</label>
-                                <input value="{{ isset($data) ? $data->icon : '' }}" name="icon" placeholder="Icon" type="text" class="form-control">
-                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Icon</label>
+                            <input value="{{ isset($data) ? $data->icon : '' }}" name="icon" placeholder="Icon" type="text" class="form-control">
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                {!! isset($data) ? '
-                                <label>Slug</label>
-                                <input value="'.$data->slug.'" name="slug" placeholder="slug" type="text" class="form-control">
-                                ' : '
-                                <label class="">Sort by</label>
-                                <select name="sort_by" class="form-control select2" id="sort_by">
-                                    <option value="1">Product</option>
-                                    <option value="2">News</option>
-                                    <option value="3">pages</option>
-                                </select>
-                                ' !!}
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {!! isset($data) ? '
+                            <label>Slug</label>
+                            <input value="'.$data->slug.'" name="slug" placeholder="slug" type="text" class="form-control">
+                            ' : '
+                            <label class="">Sort by</label>
+                            <select name="sort_by" class="form-control select2" id="sort_by">
+                                <option value="1">Product</option>
+                                <option value="2">News</option>
+                                <option value="3">pages</option>
+                            </select>
+                            ' !!}
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="">Root</label>
-                                <select id="parent" name='parent' class="form-control select2">
-                                    <option value="0">-- ROOT --</option>
-                                    @if(isset($data))
-                                    <?php addeditcat ($category,0,$str='',$data['parent']); ?>
-                                    @else
-                                    <?php addeditcat ($category,0,$str='',old('parent')); ?>
-                                    @endif
-                                </select>
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="">Root</label>
+                            <select id="parent" name='parent' class="form-control select2">
+                                <option value="0">-- ROOT --</option>
+                                @if(isset($data))
+                                <?php addeditcat ($category,0,$str='',$data['parent']); ?>
+                                @else
+                                <?php addeditcat ($category,0,$str='',old('parent')); ?>
+                                @endif
+                            </select>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Content</label>
-                                <textarea name="content" class="form-control" id="ckeditor">{{ isset($data) ? $data->content : '' }}</textarea>
-                            </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea name="content" class="form-control" id="ckeditor">{{ isset($data) ? $data->content : '' }}</textarea>
                         </div>
                     </div>
                 </div>

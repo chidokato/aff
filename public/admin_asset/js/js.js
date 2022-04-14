@@ -303,25 +303,23 @@ $(document).ready(function() {
             data: $(this).serialize(),
             success: function(datas){
                 $('#load_html_section').html(datas);
+                // location.reload();
             }
         }).done(function(response) {
             // alert('thành công');
         });
         event.preventDefault(); // <- avoid reloading
     });
-
     $('button#del_section').on('click', function(){
         var id = $(this).parents('#section_list').find('input[id="section_id"]').val();
         // alert(section_id);
         $.ajax({
             url:  'admin/ajax/del_section/'+id, type: 'GET', cache: false, data: {"id":id},
         });
-        $(this).closest(".row").remove();
+        $(this).closest("#section_list").remove();
     });
-
-
-
 }); // lưu section trong thêm sản phẩm
+
 // section
 // end sản phẩm
 
@@ -481,7 +479,5 @@ function formatCurrency(input, blur) {
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
 
-
-
-
 // end news
+

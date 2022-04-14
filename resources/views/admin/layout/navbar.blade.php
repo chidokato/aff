@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin/dashboard">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -16,19 +16,19 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">Interface</div>
+    <!-- <hr class="sidebar-divider"> -->
+    <!-- <div class="sidebar-heading">Interface</div> -->
     <li class="nav-item">
-        <a class="nav-link" href="admin/category/list"><i class="fas fa-fw fa-chart-area"></i><span>Quản lý danh mục</span></a>
+        <a class="nav-link" href="admin/category/list"><i class="fas fa-fw fa-chart-area"></i><span>Danh mục</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="admin/product/list"><i class="fas fa-fw fa-chart-area"></i><span>Quản lý sản phẩm</span></a>
+        <a class="nav-link" href="admin/product/list"><i class="fas fa-fw fa-chart-area"></i><span>Sản phẩm</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="admin/news/list"><i class="fas fa-fw fa-chart-area"></i><span>Quản lý tin tức</span></a>
+        <a class="nav-link" href="admin/news/list"><i class="fas fa-fw fa-chart-area"></i><span>Tin tức</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="admin/messages/list"><i class="fas fa-fw fa-chart-area"></i><span>Quản lý messages</span></a>
+        <a class="nav-link" href="admin/messages/list"><i class="fas fa-fw fa-chart-area"></i><span>Messages</span></a>
     </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#setting"
@@ -87,8 +87,8 @@
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
+    <!-- <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
+    </div> -->
 
 </ul>

@@ -27,7 +27,7 @@
 			<div class="post-item-wrap">
 				<div class="post-image">
 					<a href="{{$val->category->slug}}/{{$val->slug}}">
-						<img alt="" src="data/news/{{$val->img}}">
+						<img alt="" data-src="data/news/{{$val->img}}" class="lazyload">
 					</a>
 					<span class="post-meta-category"><a href="{{$val->category->slug}}">{{$val->category->name}}</a></span>
 				</div>

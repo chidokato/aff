@@ -1,6 +1,7 @@
 @extends('admin.layout.index')
 @section('product') menu-item-active @endsection
 @section('content')
+
 @include('admin.errors.alerts')
 
 <?php use App\section; ?>
@@ -12,12 +13,27 @@ if(isset($data)){
 }else{ echo 'add'; }
 ?>" method="POST" enctype="multipart/form-data" id="target">
 <input type="hidden" name="_token" value="{{csrf_token()}}" />
-<div class="text-right mb-3">
-    <button type="button" onclick="goBack()" class="btn-warning mr-2"><i class="fas fa-arrow-left"></i> Back</button>
-    <button type="reset" class="btn-danger mr-2"><i class="fas fa-sync"></i> Reset</button>
-    <button type="submit" class="btn-success"><i class="far fa-save"></i> Save & back</button>
-    <!-- <button type="button" id="submit" class="btn-success"><i class="far fa-save"></i> Save</button> -->
-</div>
+
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow sticky">
+    <button type="button" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"><i class="fa fa-bars"></i></button>
+    <ul class="navbar-nav ">
+        <li class="nav-item"> <a class="nav-link line-1" href="admin/product/list" ><i class="fa fa-chevron-left" aria-hidden="true"></i> <span class="mobile-hide">Quay lại trang danh sách sản phẩm</span> </a> </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item mobile-hide">
+            <button type="reset" class="btn-danger mr-2 form-control"><i class="fas fa-sync"></i> Làm mới</button>
+        </li>
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <li class="nav-item">
+            <button type="submit" class="btn-success form-control"><i class="far fa-save"></i> Lưu lại</button>
+        </li>
+    </ul>
+</nav>
+
+<!-- <div class="text-right mb-3 ">
+
+</div> -->
+
 <div class="row">
     <div class="col-xl-9 col-lg-9">
         <div class="card shadow mb-2">
@@ -110,47 +126,96 @@ if(isset($data)){
                             <textarea rows="3" name="detail" class="form-control">{{ isset($data) ? $data->detail : '' }}</textarea>
                         </div>
                     </div>
-                    <!-- <div class="col-md-12">
-                        <div class="tab">
-                            <button type="button" class="tablinks active" onclick="openCity(event, 'London')">Thông số kỹ thuật</button>
-                            <button type="button" class="tablinks" onclick="openCity(event, 'Paris')">Nội dung chi tết</button>
-                        </div>
-                        <div id="London" class="tabcontent" style="display: block;">
-                            <textarea name="content" class="form-control ckeditor">{{ isset($data) ? $data->content : '' }}{{old('content')}}</textarea>
-                        </div>
-                        <div id="Paris" class="tabcontent">
-                            <textarea name="detail" class="form-control ckeditor1" id="ckeditor1">{{ isset($data) ? $data->detail : '' }}{{old('detail')}}</textarea>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
 
-        @if(isset($data))
-        <?php $section_list = section::where('articles_id', $data->id)->orderBy('number','asc')->get(); ?>
         <div class="card shadow mb-2">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Thông tin</h6>
-            </div>
-            <div class="card-body">
-                <div id="load_html_section">
-                    @include('admin.product.section')
+            @if(isset($data))
+            <?php $section_list = section::where('articles_id', $data->id)->orderBy('number','asc')->get(); ?>
+            <div class="card shadow">
+                <div class="card-header d-flex flex-row align-items-center justify-content-between">
+                    <ul class="nav nav-pills">
+                        @foreach($section_list as $key => $val)
+                        <li><a data-toggle="tab" class="nav-link {{ $key==0? 'active':'' }}" href="#id{{$val->id}}">{{$val->tab_heading}}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-file-alt"></i> Thêm</button>
+            </div>
+            <div class="tab-content">
+                @foreach($section_list as $key => $val)
+                <input type="hidden" name="id_section[]" value="{{$val->id}}" />
+                <div class="tab-pane overflow {{ $key==0? 'active':'' }}" id="id{{$val->id}}">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Tab Heading</label>
+                                    <input value="{{$val->tab_heading}}" class="form-control" type="text" name="tab_heading[]" placeholder="...">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label>Heading</label>
+                                    <input value="{{$val->heading}}" class="form-control" type="text" name="heading[]" placeholder="...">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="content_section[]" class="form-control" id="ckeditor{{$key+1}}">{!! $val->content !!}</textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input class="form-control p-2" type="file" name="img_section[]" placeholder="...">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option value="1"> style 1 (slider 1 ảnh)</option>
+                                        <option value="2"> style 2 (slider 2 ảnh)</option>
+                                        <option value="3"> style 3 (Danh sách ảnh)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @foreach($val->images as $val)
+                                {{$val->img}} <br>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
+        </div>
+        <div class="card shadow mb-2">
+            <div class="card-header py-3 pr-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Thêm Heading</h6>
+                <button class="button-none" type="button" id="add_section" onclick="addCode()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm mới</button>
+            </div>
+            <div class="card-body add_to_me" id="add_to_me">
+                <!-- <div class="form-group d-flex align-items-center justify-content-between" id="section_list">
+                    <input class="form-control" type="text" name="name_section[]" placeholder="...">
+                    <button type="button" onClick="delete_row(this)" class="form-control w100"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                </div> -->
             </div>
         </div>
-        @endif
 
         @include('admin.layout.seooption')
+
     </div>
     <div class="col-xl-3 col-lg-3">
         <div class="card shadow mb-2">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Tùy chọn</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Thông tin bổ sung</h6>
             </div>
             <div class="card-body">
-                <div class="form-group" style="position: relative;">
-                    <label>Danh mục</label>
+                <div class="form-group add-fats" style="position: relative;">
+                    <label><span>Danh mục</span> <span data-toggle="modal" data-target="#add_category" id="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm mới</span></label>
                     <select name='category_id' class="form-control select2">
                         <option value="">-- Select --</option>
                         @if(isset($data))
@@ -217,6 +282,9 @@ if(isset($data)){
                 </style>
             </div>
         </div>
+
+        
+
         <div class="card shadow mb-2">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Ảnh đại diện</h6>
@@ -224,7 +292,8 @@ if(isset($data)){
             <div class="card-body">
                 <div class="file-upload">
                     <div class="file-upload-content" onclick="$('.file-upload-input').trigger( 'click' )">
-                        <img class="file-upload-image" src="{{ isset($data) ? 'data/product/300/'.$data->img : 'data/no_image.jpg' }}" />
+                        <img class="file-upload-image" src="{{ isset($data) ? 'data/product/300/'.$data->img : '' }}" />
+                        <span style="cursor: pointer;"><i class="fa fa-plus" aria-hidden="true"></i> Tải ảnh lên từ thiết bị</span>
                     </div>
                     <div class="image-upload-wrap">
                         <input name="img" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
@@ -241,101 +310,53 @@ if(isset($data)){
                     <input type="file" name="imgdetail[]" multiple class="form-control">
                     <p>Nhấn giữ <i style="color: red">Ctrl</i> để chọn nhiều ảnh !</p>
                 </div>
-            </div>
-            @if(isset($data))
-            <div class="card-body">
+                @if(isset($data))
                 <div class="row detail-img">
                     @foreach($data->images as $val)
                     <div class="col-md-6" id="detail_img">
                         <img src="data/product/80/{{$val->img}}">
-                        <button type="button" id="del_img_detail"> Xóa ảnh </button>
+                        <button type="button" id="del_img_detail"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                         <input type="hidden" name="id_img_detail" id="id_img_detail" value="{{$val->id}}" />
                     </div>
                     @endforeach
                 </div>
+                @endif
             </div>
-            @endif
         </div>
-        
+
+        <div class="card shadow mb-2">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Trạng thái</label>
+                    <label class="flex status">
+                        <span>Ẩn/hiện</span>
+                        <input type="checkbox">
+                    </label>
+                </div>
+                <hr class="lines">
+                <div class="form-group">
+                    <label>Trạng thái</label>
+                    <label class="flex status">
+                        <span>Ẩn/hiện</span>
+                        <input type="checkbox">
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </form>
 
-<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<form id="add_section" action="admin/product/add_section" method="POST" enctype="multipart/form-data">
-<input type="hidden" name="_token" value="{{csrf_token()}}" />
-<input type="hidden" name="articles_id" value="{{ isset($data) ? $data->id : '' }}" />
-<div class="modal-dialog modal-lg" role="document">
-<div class="modal-content" id="data_add_section">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Thêm</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-<div class="row" >
-<div class="col-md-1">
-<div class="form-group">
-<label>Stt</label>
-<input name="number" type="text" class="form-control" >
-</div>
-</div>
-<div class="col-md-3">
-<div class="form-group">
-<label>Tab</label>
-<input name="tab_section" type="text" class="form-control" >
-</div>
-</div>
-<div class="col-md-8">
-<div class="form-group">
-<label>Tiêu đề</label>
-<input name="heading" type="text" class="form-control" >
-</div>
-</div>
-<div class="col-md-12">
-<div class="form-group">
-<label>Content</label>
-<textarea name="content" class="form-control ckeditor" id="ckeditor"></textarea>
-</div>
-</div>
-<div class="col-md-8">
-<div class="form-group">
-<label>Hình ảnh</label>
-<input name="img[]" multiple type="file" class="form-control">
-</div>
-</div>
-<div class="col-md-4">
-<div class="form-group">
-<label>Cách hiển thị</label>
-<select class="form-control">
-<option>adasd</option>
-<option>adasd</option>
-<option>adasd</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button id="save_section" type="submit" class="btn btn-primary">Save</button>
-</div>
-</div>
-</div>
-</form>
-</div>
+@include('admin.product.popup')
 
 <style type="text/css">
-    /*.cke_contents{height: 350px !important;}*/
-    /* The Modal (background) */
     .button_section{
         background: none; border: 2px solid #fff; border-radius: 5px;
     }
     .button_section:hover{
         border: 2px solid #ddd; border-radius: 5px;
     }
-    .input_section{
+    /*.input_section{
         border: none;
         border-bottom: 1px solid #ddd;
         width: 100%;
@@ -344,23 +365,17 @@ if(isset($data)){
     }
     .input_section:focus{
         box-shadow: none;
-    }
+    }*/
 </style>
 
 <script>
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+    function addCode() {
+        document.getElementById("add_to_me").insertAdjacentHTML("beforeend",
+                '<div class="form-group d-flex align-items-center justify-content-between" id="section_list"><input class="form-control" type="text" name="name_section[]" placeholder="..."><button type="button" onClick="delete_row(this)" class="form-control w100"><i class="fa fa-minus-circle" aria-hidden="true"></i></button></div>');
+    }
+    function delete_row(e) {
+        e.parentElement.remove();
+    }
 </script>
 
 @endsection
